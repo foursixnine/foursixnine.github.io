@@ -1,1 +1,9 @@
-theme: jekyll-theme-dinky
+# General Jekyll Config
+url: https://foursixnine.io
+exclude: [LICENSE, CNAME, README.md, .gitignore, Gemfile, Gemfile.lock]
+destination:  _site/
+plugins_dir:  lagom/_plugins/
+layouts_dir:  lagom/_layouts/
+includes_dir: lagom/_includes/
+exclude:
+  - lagom/
