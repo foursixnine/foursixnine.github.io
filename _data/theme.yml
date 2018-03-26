@@ -1,0 +1,29 @@
+# Theme customization - please change from the defaults!
+
+# Color for top bar, links, etc
+highlight_color: '#3498db'
+
+# Profile links on the left sidebar, leave blank to ignore
+social:
+  github: foursixnine
+  #hacker_news: swanson
+  twitter: foursixnine
+  facebook: foursixnine
+  linkedin: foursixnine
+  strava: foursixnine
+  flickr: foursixnine
+  gravatar: 191cf2f9dc67c43e004509fceb2ad9a8
+
+# "Hi, I'm _______"
+name: Santiago Zarate
+email: santiago* _AT_ * zarate.net.ve
+tagline: "Abandon all hope!"
+
+# Google Analytics key, leave blank to ignore
+#google_analytics_key: UA-xxxx-x
+
+# Toggle "Postings are my own" disclaimer in footer
+show_disclaimer: true
+
+# Toggle link/icon to view atom feed (/atom.xml) in sidebar
+#show_atom_feed: true
