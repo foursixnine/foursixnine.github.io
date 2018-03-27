@@ -20,7 +20,7 @@ email: santiago* _AT_ * zarate.net.ve
 tagline: "Abandon all hope!"
 
 # Google Analytics key, leave blank to ignore
-#google_analytics_key: UA-xxxx-x
+google_analytics_key: UA-428856-10
 
 # Toggle "Postings are my own" disclaimer in footer
 show_disclaimer: true
