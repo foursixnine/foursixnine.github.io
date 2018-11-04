@@ -7,7 +7,7 @@ puts "Layout type?: "
 puts "Title?: "
 @title = $stdin.readline.chomp()
 #category = $stdin.readline
-@permalink = @title.tr(' ','-')
+@permalink = @title.tr(' ','-')+'.md'
 
 def template
 
