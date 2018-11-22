@@ -25,6 +25,6 @@ Una explicacion flash: Una vez que ingreses con tu usuario y contraseña en la p
 1. Situate en la opcion "En el extranjero" - ![Paso 1](/assets/images/prorroga/prorroga-1.jpg)
 2. Mueve el mouse (Horizontalmente funciona bastante bien) hacia la opcion: "Obtencion de prorroga de pasaporte electronico" ![paso 2](/assets/images/prorroga/prorroga-2.jpg)
 3. Luego de ver un anuncio sobre la prorroa, deberias poder ver esto: ![paso 3](/assets/images/prorroga/prorroga-3.jpg)
-4. En caso de que los pasos arriba mencionados no funcionen, una vez que logres ingresar a la web de saime con tu usuario y contraseña, puedes intentar esta url directamentehttps://tramites.saime.gob.ve/index.php?r=inicio/inicio/prorrogaconsular
+4. En caso de que los pasos arriba mencionados no funcionen, una vez que logres ingresar a la web de saime con tu usuario y contraseña, puedes intentar esta url directamente: https://tramites.saime.gob.ve/index.php?r=inicio/inicio/prorrogaconsular
 
 Si tienes alguna duda, puedes escribirme a @foursixnine en instagram o en twitter, o en 'i+blog @ foursixnine _punto_ io'
