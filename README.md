@@ -10,6 +10,12 @@ done or improved.
 
 One of the things that I want to have the most, is one of these fancy and nice night modes.
 
+## Running the thing
+
+(This is mainly a reminder for myself on how to do this...)
+
+`jekyll serve --incremental --detach`
+
 # Contributing
 
 If you wish to contribute, please send a pr :)
