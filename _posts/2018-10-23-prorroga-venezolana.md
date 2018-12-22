@@ -18,6 +18,10 @@ Ya que no encontre informacion clara de el proceso, aca dejo los pasos que tuve 
 4. En el transcurso del tiempo entre que solicitas la cita para extender tu visa, y el momento de la cita, puede ser que la prorroga te llegue, aparecete en la cita con tu flamante prorroga, si esta no llega, te otorgaran un permiso temporal, mientras te llega la prorroga, una vez que te llegue, dirigete al paso 3.
 5. Disfrute de dos años mas de estancia :)
 
+## Cuanto tiempo toma?
+
+Entropia. No estoy seguro de cuanto tiempo toma, hay personas a las que le toma un par de meses, y a otros les toma 3-6 meses... asi que a esperar.
+
 ## No se como solicitar la prorroga!
 
 Una explicacion flash: Una vez que ingreses con tu usuario y contraseña en la pagina de saime:
