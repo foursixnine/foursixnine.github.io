@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Setting up postfix, dovecot and sieve
+title: About Perl and mismatched binaries
 categories:
 - blog
 ---
