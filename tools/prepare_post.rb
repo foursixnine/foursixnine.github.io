@@ -1,8 +1,8 @@
 #!/usr/bin/ruby
 require 'date'
 
-@postDate = Date.today.to_s() 
-puts "Layout type?: "
+@postDate = Date.today.to_s()
+puts "Layout type?: (using 'post' as default for now)"
 @layout = 'post' # $stdin.readline.chomp()?
 puts "Title?: "
 @title = $stdin.readline.chomp()
