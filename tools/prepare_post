@@ -23,4 +23,6 @@ generated on: #{@postDate}
 HEREDOC
 end
 puts template()
-File.write("_posts/#@postDate-#@permalink", template())
+post_name = "_posts/#{@postDate}-#{@permalink}"
+File.write(post_name, template())
+system("vim '#{post_name}'")
