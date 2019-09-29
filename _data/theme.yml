@@ -6,7 +6,6 @@ highlight_color: '#3498db'
 # Profile links on the left sidebar, leave blank to ignore
 social:
   github: foursixnine
-  #hacker_news: swanson
   twitter: foursixnine
   facebook: foursixnine
   linkedin: foursixnine
@@ -17,7 +16,7 @@ social:
 # "Hi, I'm _______"
 title: foursixnine's lair
 name: Santiago Zarate
-email: santiago* _AT_ * zarate.net.ve
+email: santiago+blog * _AT_ * zarate.co
 tagline: "Abandon all hope!"
 description: "
     <p>I do free and opensource software. I eat. I travel. I take pictures. I
