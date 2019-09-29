@@ -16,14 +16,16 @@ social:
 # "Hi, I'm _______"
 title: foursixnine's lair
 name: Santiago Zarate
-email: santiago+blog * _AT_ * zarate.co
+email: santiago+blog AT zarate.co
 tagline: "Abandon all hope!"
 description: "
     <p>I do free and opensource software. I eat. I travel. I take pictures. I
     bike. I love linguistics. I do <a
     href=\"https://instagram.com/eltravelosaurio\">@eltravelosaurio</a> and
     use <a
-    href=\"https://instagram.com/explore/tags/travelingtrex/\">#travelingtrex</a>.</p>"
+    href=\"https://instagram.com/explore/tags/travelingtrex/\">#travelingtrex</a>.</p>
+    <p>Say hi @<br /> !BLOG_EMAIL<p>
+    "
 origin: "<p>I'm from Caracas, Venezuela</p>"
 
 # Google Analytics key, leave blank to ignore
