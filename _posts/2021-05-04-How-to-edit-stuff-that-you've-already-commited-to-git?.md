@@ -13,7 +13,7 @@ that belongs to second to last, or even the first commit in your list, and you'r
 
 `git commit -m "Add fixes from the review" $file`
 
-Or you simply don't know, and have no idea what `squash` or `rebase` means?, well I won't explain rebase today, but I
+Or you simply don't know, and have no idea what `squash` or `rebase` means?, well I won't explain `squash` today, but I
 will explain `rebase`
 
 ![DON'T PANIC](https://media.giphy.com/media/O8FdP4NKLFKcU/giphy.gif)
@@ -45,8 +45,13 @@ git push -f # I think you will need to add remote+branch, git will remind you
 # go on with your life
 ```
 
-(Note: A squash is gonna put all of the commits together, just make sure that there's an order:
+
+Note: A squash is gonna put all of the commits together, just make sure that there's an order:
+
+## I lied, here's a very quick and dirty squash guide
 
 * pick COMMIT1
 * pick COMMIT2
 * squash COMMIT3 # (Git will combine this commit, with the one above iir, so COMMIT2+COMMIT3 and git will ask you for a new commit message) 
+
+![I lied](https://media.giphy.com/media/11CCn8sSFSm2kg/giphy.gif)
