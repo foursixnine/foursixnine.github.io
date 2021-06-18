@@ -99,3 +99,4 @@ openqa-clone-custom-git-refspec \
 
 In the end you will end up with an URL https://openqa.opensuse.org/t1793764, and you will get emails from travis if something is going wrong
 
+[![asciicast](https://asciinema.org/a/EplIHYg4UYHKh1MW2q553sPth.svg)](https://asciinema.org/a/EplIHYg4UYHKh1MW2q553sPth)
