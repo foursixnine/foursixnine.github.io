@@ -30,12 +30,12 @@ Instead of downloading local::lib from git as I used to do... this time I decide
 that's why I run [openSUSE Tumbleweed](https://get.opensuse.org)
 
 ```
- $ rm -rf perl5-old || echo "First time eh?"
- $ mv perl5 perl5-old
- $ perl-migrate-modules --from ~/perl5-old/lib/perl5 /usr/bin/perl
- $ perl -MCPAN -Mlocal::lib -e 'CPAN::install(App::cpanminus)'
- $ cpanm App::MigrateModules
- $ perl-migrate-modules --from ~/perl5-old/lib/perl5 /usr/bin/perl
+ zypper in perl-local-lib
+ rm -rf perl5-old || echo "First time eh?"
+ mv perl5 perl5-old
+ perl -MCPAN -Mlocal::lib -e 'CPAN::install(App::cpanminus)'
+ cpanm App::MigrateModules
+ perl-migrate-modules --from ~/perl5-old/lib/perl5 /usr/bin/perl
 ```
 
 Et voilà, ma chérie!
