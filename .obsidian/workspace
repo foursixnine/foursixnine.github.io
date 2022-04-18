@@ -1,0 +1,96 @@
+{
+  "main": {
+    "id": "8558ce03bbbd9b68",
+    "type": "split",
+    "children": [
+      {
+        "id": "964041bec41093f5",
+        "type": "leaf",
+        "state": {
+          "type": "markdown",
+          "state": {
+            "file": "_posts/2022-04-18-Interoperabilidad-de-Obsidian-con-Linux,-iOS-y-OSX.md",
+            "mode": "source",
+            "source": false
+          }
+        }
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "0c02514ab819cbd0",
+    "type": "split",
+    "children": [
+      {
+        "id": "27689b0524adba64",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "6ade13bf79914e0f",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {}
+            }
+          },
+          {
+            "id": "ed0ad371fe24e7d5",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "aeebee99734de249",
+    "type": "split",
+    "children": [
+      {
+        "id": "b348ba9c80a33755",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "e5f2a95d39decc85",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "_posts/2022-04-18-Interoperabilidad-de-Obsidian-con-Linux,-iOS-y-OSX.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "active": "964041bec41093f5",
+  "lastOpenFiles": [
+    "_posts/2022-04-18-Interoperabilidad-de-Obsidian-con-Linux,-iOS-y-OSX.md",
+    "_posts/2021-09-17-So-you-want-to-recover-and-old-git-branch-because-it-has-been-overwritten?.md",
+    "_posts/2022-02-11-Remove-file-from-the-last-commit-in-git.md"
+  ]
+}
