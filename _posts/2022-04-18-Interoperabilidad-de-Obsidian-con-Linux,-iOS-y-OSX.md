@@ -25,26 +25,26 @@ Decidí irme por [Obsidian](https://obsidian.md/), luego de considerar Notion y 
 - Tiene un VIM mode :D.
 - El [roadmap](https://trello.com/b/Psqfqp7I/obsidian-roadmap) promete.
 
-![zettelkasten](https://upload.wikimedia.org/wikipedia/commons/1/1a/Zettelkasten_paper_schematic.png)
+![zettelkasten](/assets/images/zettelkasten.png)
 
 Revisando varias cosas, y realmente investigando un poco, llegue al siguiente workflow:
 
 - Logre construir el workflow que hace lo que necesito:
-	- Vault en git en mi VPS, en una instancia propia de gitea, la data es mia.
-	- En Linux:
-		- El manejo de las distintas _Vaults_ (Bóvedas) seria por **git** directamente.
-			- [Nextcloud](nextcloud.com) como mecanismo de backup redundante en el [NAS](https://www.truenas.com/truenas-mini) en casa via *scsi* en un rpi.
-			- A mediano, o largo plazo:
-				- La solución de NAS podría ser FreeNAS, TrueNAS o Synology
-				- VPS como gateway, utilizando vpn con wireguard para mantener todo en una red privada.
-	- En *OSX*:
-		- Seria igual que en _linux_, por **git** pero con la diferencia de que las bóvedas estarían alojadas en una carpeta en _iCloud_.
-		- La llave ssh con permiso de escritura en el repo seria importada al _keystore_ (`ssh-add -K`), para que no de problemas a la hora de pedir contraseñas.
-		- Queda pendiente revisar como hacer con las firmas de los commits con GPG, o _maybe_ usando [ssh para firmar commits](https://github.com/github/feedback/discussions/7744)
-	- En *IOS*, los vaults se estarían abriendo via _iCloud_, dejando por fuera el manejo con git, mientras se agrega el soporte en para [ios/mobile en obsidian-git](https://github.com/denolehov/obsidian-git/issues/57).
+    - Vault en git en mi VPS, en una instancia propia de gitea, la data es mia.
+    - En Linux:
+        - El manejo de las distintas _Vaults_ (Bóvedas) seria por **git** directamente.
+            - [Nextcloud](nextcloud.com) como mecanismo de backup redundante en el [NAS](https://www.truenas.com/truenas-mini) en casa via *scsi* en un rpi.
+            - A mediano, o largo plazo:
+                - La solución de NAS podría ser FreeNAS, TrueNAS o Synology
+                - VPS como gateway, utilizando vpn con wireguard para mantener todo en una red privada.
+    - En *OSX*:
+        - Seria igual que en _linux_, por **git** pero con la diferencia de que las bóvedas estarían alojadas en una carpeta en _iCloud_.
+        - La llave ssh con permiso de escritura en el repo seria importada al _keystore_ (`ssh-add -K`), para que no de problemas a la hora de pedir contraseñas.
+        - Queda pendiente revisar como hacer con las firmas de los commits con GPG, o _maybe_ usando [ssh para firmar commits](https://github.com/github/feedback/discussions/7744)
+    - En *IOS*, los vaults se estarían abriendo via _iCloud_, dejando por fuera el manejo con git, mientras se agrega el soporte en para [ios/mobile en obsidian-git](https://github.com/denolehov/obsidian-git/issues/57).
 
 ![Conspiracy](https://media.giphy.com/media/l0IylOPCNkiqOgMyA/giphy-downsized.gif)
 
 En un tiempo revisare este post, y actualizare seguramente a mi nuevo workflow... o hare una vista en retrospectiva de que pudo salir mejor, etc, sin embargo creo que la primera tarea que hare, sera escribir un plugin para poderlo integrar con la creación de posts de este blog, y utilizar el grafo de tags, que por ahora... se ve así:
 
-![[images/blog_tag_cloud.png]]
+![tag cloud](/assets/images/blog_tag_cloud.png)
