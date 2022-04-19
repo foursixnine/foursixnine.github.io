@@ -1,1 +1,19 @@
-{}
+{
+  "editor:toggle-spellcheck": [
+    {
+      "modifiers": [
+        "Shift"
+      ],
+      "key": "F7"
+    }
+  ],
+  "app:open-vault": [
+    {
+      "modifiers": [
+        "Alt",
+        "Mod"
+      ],
+      "key": "ArrowUp"
+    }
+  ]
+}

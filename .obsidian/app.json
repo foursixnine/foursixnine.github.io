@@ -8,5 +8,11 @@
     "downscalePercent": 100
   },
   "spellcheck": true,
-  "alwaysUpdateLinks": true
+  "alwaysUpdateLinks": true,
+  "showFrontmatter": true,
+  "useTab": false,
+  "vimMode": true,
+  "useMarkdownLinks": true,
+  "attachmentFolderPath": "./",
+  "showUnsupportedFiles": true
 }
