@@ -1,0 +1,1335 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Sinai</title>
+    <link>http://localhost:4000</link>
+    <description>Thoughts, Stories and Ideas</description>
+    <lastBuildDate>Thu, 28 Apr 2022 01:04:19 +0200</lastBuildDate>
+    <atom:link href="http://localhost:4000feed.xml" rel="self" type="application/rss+xml"/>
+
+    
+      <item>
+        <title>Interoperabilidad de Obsidian con Linux, iOS y OSX</title>
+        <description>&lt;p&gt;Hace tiempo en el grupo de Developers Ve en el mundo, preguntaba si alguien había utilizado Obsidian. Considerándome un power user de Evernote, sé lo que necesito, y en los años que llevo buscando una alternativa que funcione en linux, tenia el problema de que muy pocas realmente funcionan bien o siquiera tienen soporte para linux.&lt;/p&gt;
+
+&lt;p&gt;Decidí irme por &lt;a href=&quot;https://obsidian.md/&quot;&gt;Obsidian&lt;/a&gt;, luego de considerar Notion y otras herramientas principalmente por los plugins, que tiene &lt;a href=&quot;https://es.wikipedia.org/wiki/Zettelkasten&quot;&gt;Zettelkasten&lt;/a&gt; como feature, esta pensado con las siguientes otras razones:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Es perfecto para &lt;a href=&quot;https://es.wikipedia.org/wiki/Zettelkasten&quot;&gt;Zettelkasten&lt;/a&gt; y para construir un segundo cerebro (&lt;a href=&quot;https://robingeuens.com/blog/build-a-second-brain-obsidian&quot;&gt;Building a Second Brain&lt;/a&gt;), y tiene un sistema de tags simple, pero poderoso.&lt;/li&gt;
+  &lt;li&gt;Soporte para Markdown &lt;em&gt;by default&lt;/em&gt;.&lt;/li&gt;
+  &lt;li&gt;Los archivos están en mis dispositivos, no en la nube &lt;em&gt;by design&lt;/em&gt;.&lt;/li&gt;
+  &lt;li&gt;Puedo elegir alternativas de respaldo, control de versiones y redundancia.&lt;/li&gt;
+  &lt;li&gt;Soporte para &lt;a href=&quot;obsidian://show-plugin?id=obsidian-kanban&quot;&gt;Kanban Boards&lt;/a&gt;.&lt;/li&gt;
+  &lt;li&gt;Soporte para &lt;a href=&quot;https://github.com/lynchjames/obsidian-day-planner&quot;&gt;Day Planners&lt;/a&gt;.&lt;/li&gt;
+  &lt;li&gt;Soporte para &lt;a href=&quot;obsidian://show-plugin?id=nldates-obsidian&quot;&gt;Natural Language Dates&lt;/a&gt; para cosas &lt;em&gt;like&lt;/em&gt;: &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;@today&lt;/code&gt;, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;@tomorrow&lt;/code&gt;.&lt;/li&gt;
+  &lt;li&gt;La interfaz es exactamente lo que me encanta de Sublime que es lo que había estado utilizando para tomar notas, junto a la aplicación de notas del teléfono y notas via el correo.&lt;/li&gt;
+  &lt;li&gt;Tiene un VIM mode :D.&lt;/li&gt;
+  &lt;li&gt;El &lt;a href=&quot;https://trello.com/b/Psqfqp7I/obsidian-roadmap&quot;&gt;roadmap&lt;/a&gt; promete.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/zettelkasten.png&quot; alt=&quot;zettelkasten&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Revisando varias cosas, y realmente investigando un poco, llegue al siguiente workflow:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Logre construir el workflow que hace lo que necesito:
+    &lt;ul&gt;
+      &lt;li&gt;Vault en git en mi VPS, en una instancia propia de gitea, la data es mia.&lt;/li&gt;
+      &lt;li&gt;En Linux:
+        &lt;ul&gt;
+          &lt;li&gt;El manejo de las distintas &lt;em&gt;Vaults&lt;/em&gt; (Bóvedas) seria por &lt;strong&gt;git&lt;/strong&gt; directamente.
+            &lt;ul&gt;
+              &lt;li&gt;&lt;a href=&quot;nextcloud.com&quot;&gt;Nextcloud&lt;/a&gt; como mecanismo de backup redundante en el &lt;a href=&quot;https://www.truenas.com/truenas-mini&quot;&gt;NAS&lt;/a&gt; en casa via &lt;em&gt;scsi&lt;/em&gt; en un rpi.&lt;/li&gt;
+              &lt;li&gt;A mediano, o largo plazo:
+                &lt;ul&gt;
+                  &lt;li&gt;La solución de NAS podría ser FreeNAS, TrueNAS o Synology&lt;/li&gt;
+                  &lt;li&gt;VPS como gateway, utilizando vpn con wireguard para mantener todo en una red privada.&lt;/li&gt;
+                &lt;/ul&gt;
+              &lt;/li&gt;
+            &lt;/ul&gt;
+          &lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;En &lt;em&gt;OSX&lt;/em&gt;:
+        &lt;ul&gt;
+          &lt;li&gt;Seria igual que en &lt;em&gt;linux&lt;/em&gt;, por &lt;strong&gt;git&lt;/strong&gt; pero con la diferencia de que las bóvedas estarían alojadas en una carpeta en &lt;em&gt;iCloud&lt;/em&gt;.&lt;/li&gt;
+          &lt;li&gt;La llave ssh con permiso de escritura en el repo seria importada al &lt;em&gt;keystore&lt;/em&gt; (&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ssh-add -K&lt;/code&gt;), para que no de problemas a la hora de pedir contraseñas.&lt;/li&gt;
+          &lt;li&gt;Queda pendiente revisar como hacer con las firmas de los commits con GPG, o &lt;em&gt;maybe&lt;/em&gt; usando &lt;a href=&quot;https://github.com/github/feedback/discussions/7744&quot;&gt;ssh para firmar commits&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;En &lt;em&gt;IOS&lt;/em&gt;, los vaults se estarían abriendo via &lt;em&gt;iCloud&lt;/em&gt;, dejando por fuera el manejo con git, mientras se agrega el soporte en para &lt;a href=&quot;https://github.com/denolehov/obsidian-git/issues/57&quot;&gt;ios/mobile en obsidian-git&lt;/a&gt;.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://media.giphy.com/media/l0IylOPCNkiqOgMyA/giphy-downsized.gif&quot; alt=&quot;Conspiracy&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;En un tiempo revisare este post, y actualizare seguramente a mi nuevo workflow… o hare una vista en retrospectiva de que pudo salir mejor, etc, sin embargo creo que la primera tarea que hare, sera escribir un plugin para poderlo integrar con la creación de posts de este blog, y utilizar el grafo de tags, que por ahora… se ve así:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/blog_tag_cloud.png&quot; alt=&quot;tag cloud&quot; /&gt;&lt;/p&gt;
+</description>
+        <pubDate>Mon, 18 Apr 2022 00:00:00 +0200</pubDate>
+        <link>http://localhost:4000/blog/linux/tech/espa%C3%B1ol/2022/04/18/Interoperabilidad-de-Obsidian-con-Linux,-iOS-y-OSX/</link>
+        <guid isPermaLink="true">http://localhost:4000/blog/linux/tech/espa%C3%B1ol/2022/04/18/Interoperabilidad-de-Obsidian-con-Linux,-iOS-y-OSX/</guid>
+      </item>
+    
+      <item>
+        <title>Remove file from the last commit in git</title>
+        <description>&lt;ul&gt;
+  &lt;li&gt;So, you want to remove that pesky file from your last commit?&lt;/li&gt;
+  &lt;li&gt;By accident (naturally, as you and me are perfect beings) a file was commited and it should have not?&lt;/li&gt;
+  &lt;li&gt;The cat went over the keyboard and now there’s an extra file in your commit?&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;If the answer to any of the above is yes, here’s how to do it without pain (Tanking into account, that you want to do
+that on the last commit; If you need to do it in the middle of a rebase, see the previous post or combine this trick
+with a rebase (edit a commit with a rebase…).&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;git restore --source=HEAD^ pesky.file&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;You can always checkout the file again, or use some witchcraft extracted from &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;man git-restore&lt;/code&gt; to do it all at once&lt;/p&gt;
+
+&lt;p&gt;This is blatantly stolen from: https://devconnected.com/how-to-remove-files-from-git-commit/ but also &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;man git&lt;/code&gt;
+could get you there too, given enough reading.&lt;/p&gt;
+</description>
+        <pubDate>Fri, 11 Feb 2022 00:00:00 +0100</pubDate>
+        <link>http://localhost:4000/blog/tech/linux/git/2022/02/11/Remove-file-from-the-last-commit-in-git/</link>
+        <guid isPermaLink="true">http://localhost:4000/blog/tech/linux/git/2022/02/11/Remove-file-from-the-last-commit-in-git/</guid>
+      </item>
+    
+      <item>
+        <title>So you want to recover and old git branch because it has been overwritten?</title>
+        <description>&lt;h2 id=&quot;so-you-just-broke-that-pr-youve-been-working-on-for-months&quot;&gt;So you just broke that PR you’ve been working on for months?&lt;/h2&gt;
+
+&lt;p&gt;One day, you find yourself force pushing over your already existing Pull request/branch, because like me, you like to
+reuse funny names:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;git fetch origin
+git checkout tellmewhy #already exists and has a pull request still open, but you didn&apos;t know
+git reset --hard origin/master
+# hack hack hack
+git commit $files
+git push -f nameofmyremote
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://giphy.com/media/panic-P4133zeloooHm/giphy.gif&quot; alt=&quot;panic&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;panic&quot;&gt;Panic!&lt;/h2&gt;
+
+&lt;p&gt;Here’s when you realize that You’ve done something wrong, very very wrong, because github will throw the message:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Error creating pull request: Unprocessable Entity (HTTP 422)
+A pull request already exists for foursixnine:tellmewhy.
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;So, you already broke your old PR with a completely unrelated change,&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://giphy.com/media/cjWY3shtuKyfX5VeB1/giphy.gif&quot; alt=&quot;what do you do?&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;dont-panic&quot;&gt;Don’t panic&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&quot;https://media.giphy.com/media/MEM0K35P4iC70rCNSo/giphy.gif&quot; alt=&quot;don&apos;t panic&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;If you happen to know what’s the previous commit id, you can always pick it up again (go to github.com/pulls for instance and look for the PR with the branch),
+AND, AND, AAANDDDD, ABSOLUTELY ANDDDD, you haven’t ran &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;git gc&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;In my case:&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;@foursixnine foursixnine force-pushed the tellmewhy branch from 9e86f3a to **9714c93** 2 months ago&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;All there’s to do is:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;git checkout $commit
+# even better:
+git checkout tellmewhy # old branch with new commits that are unrelated/overwritten over the old ones
+git checkout -b tellmewhyagain # your new copy, open your pr from here
+git push tellmewhyagain # now all is &quot;safe&quot; in the cloud
+git checkout tellmewhy # Let&apos;s bring the dead back to life
+git reset --hard 9714c93
+git push -f tellmewhy
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;And this is it, you’ve brought the dead back to life&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://media.giphy.com/media/l2YWAOJso1n136fM4/giphy.gif&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+</description>
+        <pubDate>Fri, 17 Sep 2021 00:00:00 +0200</pubDate>
+        <link>http://localhost:4000/blog/linux/tech/git/2021/09/17/So-you-want-to-recover-and-old-git-branch-because-it-has-been-overwritten/</link>
+        <guid isPermaLink="true">http://localhost:4000/blog/linux/tech/git/2021/09/17/So-you-want-to-recover-and-old-git-branch-because-it-has-been-overwritten/</guid>
+      </item>
+    
+      <item>
+        <title>How to test things with openQA without running your own instance</title>
+        <description>&lt;h1 id=&quot;wait-what&quot;&gt;Wait what?&lt;/h1&gt;
+
+&lt;p&gt;Yes, there are couple of ways for you, the user, the contributor, the amazing human being who wants to improve the software that is used by
+millions, to write automated tests and have bots doing all the work for you, once you’ve signed a binding contract with the blood of an unicorn,
+and have obtained api keys for our public https://openqa.opensuse.org instance.&lt;/p&gt;
+
+&lt;p&gt;For now I will leave out the details on how to get those, but will rather point you to the #factory irc channel (or dischord), where you can get
+in touch with current admins, whom will be able to guide you better in the process.&lt;/p&gt;
+
+&lt;h2 id=&quot;i-have-the-keys&quot;&gt;I have the keys&lt;/h2&gt;
+&lt;p&gt;You should get operator keys and they would look like this (more or less):&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;[openqa.opensuse.org]
+key = 45ABCEB4562ACB04
+secret = 4BA0003086C4CB95
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://media.giphy.com/media/uIGHPjEfdc0Ni/giphy.gif&quot; alt=&quot;Multipass&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;now-lets-do-this&quot;&gt;Now let’s do this&lt;/h2&gt;
+
+&lt;p&gt;I will assume that you’re using openSUSE Tumbleweed, instructions are similar for Leap, but if you’re looking for something more esoteric, check the
+&lt;a href=&quot;https://open.qa/docs/#bootstrapping&quot;&gt;bootstraping guide&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Bring up a terminal or your favorite package manager, and install &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;openQA-client&lt;/code&gt;, it will pull almost everything you will need&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;zypper in openQA-client
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Once we’re here, we’ve gotta clone the git repo from the tests being ran in openqa.opensuse.org, to do that let’s go to a directory; let’s call it
+Skynet and create it in our user’s home. My user’s home is &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/home/foursixnine&lt;/code&gt;  \o/ and use &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;git&lt;/code&gt; to clone the test repository: 
+&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;https://github.com/os-autoinst/os-autoinst-distri-opensuse/&lt;/code&gt;.&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;cd $HOME
+mkdir Skynet
+cd Skynet
+git clone https://github.com/os-autoinst/os-autoinst-distri-opensuse/
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Now since we already cloned the test distribution, and also got the openQA client installed, all there is to do is:&lt;/p&gt;
+
+&lt;p&gt;1 - Hacking &amp;amp; Commiting
+2 - Scheduling a test run&lt;/p&gt;
+
+&lt;p&gt;At this point we can do #1 fairly easy, but #2 needs a bit of a push (no pun intended), this is where we will need the API keys that we requested,
+in the beginning.&lt;/p&gt;
+
+&lt;p&gt;We will rely for now, on &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;openqa-clone-custom-git-refspec&lt;/code&gt; which reads configuration parameters from “$OPENQA_CONFIG/client.conf”, “~/.config/openqa/client.conf”
+and “/etc/openqa/client.conf” (you can run openqa-cli –help to get more detailed info on this), for now open up your favorite editor and let’s create the directories
+and files we’ll need&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;mkdir ~/.config/openqa
+$EDITOR ~/.config/openqa/client.conf
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;And paste the API keys you already have, you you will be able to post and create jobs on the public instance!&lt;/p&gt;
+
+&lt;h2 id=&quot;lets-get-hacking&quot;&gt;Let’s get hacking&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://media.giphy.com/media/115BJle6N2Av0A/giphy.gif&quot; alt=&quot;Hacker!&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;This part is pretty straightforward once you’ve looked at $HOME/Skynet/os-autoinst-distri-opensuse.&lt;/p&gt;
+
+&lt;p&gt;For this round, let’s say we want to also test chrome, in incognito mode. By looking at chrome’s help we know that the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;--incognito&lt;/code&gt; is a thing&lt;/p&gt;
+
+&lt;p&gt;So let’s go to where all the tests are, edit, commit and push our changes&lt;/p&gt;
+
+&lt;p&gt;Remember to set up your fork, however if you want to make your life easier use &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;hub&lt;/code&gt; you can find it in the repos too!&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;cd $HOME/Skynet/os-autoinst-distri-opensuse
+vim tests/x11/chrome.pm
+git commit -m &quot;Message goes here&quot; tests/x11/chrome.pm
+git push $REMOTE
+openqa-clone-custom-git-refspec \
+ https://github.com/foursixnine/os-autoinst-distri-opensuse/tree/test_incognito_in_chrome \
+ https://openqa.opensuse.org/tests/1792294 \
+ SCHEDULE=tests/installation/bootloader_start,tests/boot/boot_to_desktop,tests/console/consoletest_setup,tests/x11/chrome \
+ BUILD=0 \
+ TEST=openQA-WORKSHOP-ALL-CAPS
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;In the end you will end up with an URL https://openqa.opensuse.org/t1793764, and you will get emails from travis if something is going wrong&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://asciinema.org/a/EplIHYg4UYHKh1MW2q553sPth&quot;&gt;&lt;img src=&quot;https://asciinema.org/a/EplIHYg4UYHKh1MW2q553sPth.svg&quot; alt=&quot;asciicast&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+</description>
+        <pubDate>Fri, 18 Jun 2021 00:00:00 +0200</pubDate>
+        <link>http://localhost:4000/blog/linux/tech/qualityassurance/2021/06/18/How-to-test-things-with-openQA-without-running-your-own-instance/</link>
+        <guid isPermaLink="true">http://localhost:4000/blog/linux/tech/qualityassurance/2021/06/18/How-to-test-things-with-openQA-without-running-your-own-instance/</guid>
+      </item>
+    
+      <item>
+        <title>How to edit stuff that you&apos;ve already commited to git? (And squash as a bonus)</title>
+        <description>&lt;p&gt;So, you’re in the middle of a review, and have couple of commits but one of the comments is asking you to modify a line
+that belongs to second to last, or even the first commit in your list, and you’re not willing to do:&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;git commit -m &quot;Add fixes from the review&quot; $file&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Or you simply don’t know, and have no idea what &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;squash&lt;/code&gt; or &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;rebase&lt;/code&gt; means?, well I won’t explain &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;squash&lt;/code&gt; today, but I
+will explain &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;rebase&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://media.giphy.com/media/O8FdP4NKLFKcU/giphy.gif&quot; alt=&quot;DON&apos;T PANIC&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;See how I do it, and also how do I screw up!&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://asciinema.org/a/bUdcrFZRRAzCHQk2EyG7ru9mA&quot;&gt;&lt;img src=&quot;https://asciinema.org/a/bUdcrFZRRAzCHQk2EyG7ru9mA.svg&quot; alt=&quot;asciicast&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;It all boils down to making sure that you &lt;strong&gt;trust&lt;/strong&gt; git, and hope that things are small enough so that if you lose the
+stash, you can always rewrite it.&lt;/p&gt;
+
+&lt;p&gt;So in the end, for me it was:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;git fetch origin
+git rebase -i origin/master # if your branch is not clean, git will complain and stop
+git stash # because my branch was not clean, and my desired change was already done
+git rebase -i origin/master # now, let&apos;s do a rebase
+# edit desired commits, for this add the edit (or an e) before the commit
+# save and quit vim ([esc]+[:][x] or [esc]+[:][w][q], or your editor, if you&apos;re using something else
+git stash pop # because I already had my change
+$HACK # if you get conflicts or if you want to modify more
+      # be careful here, if you rewrite history too much
+      # you will end up in Back to the Future II
+      # Luckly you can do git rebase --abort
+git commit --amend $files #(alternatively, git add $files first then git commit --amend
+git rebase --continue
+git push -f # I think you will need to add remote+branch, git will remind you
+# go on with your life
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Note: A squash is gonna put all of the commits together, just make sure that there’s an order:&lt;/p&gt;
+
+&lt;h2 id=&quot;i-lied-heres-a-very-quick-and-dirty-squash-guide&quot;&gt;I lied, here’s a very quick and dirty squash guide&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;pick COMMIT1&lt;/li&gt;
+  &lt;li&gt;pick COMMIT2&lt;/li&gt;
+  &lt;li&gt;squash COMMIT3 # (Git will combine this commit, with the one above iir, so COMMIT2+COMMIT3 and git will ask you for a new commit message)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://media.giphy.com/media/11CCn8sSFSm2kg/giphy.gif&quot; alt=&quot;I lied&quot; /&gt;&lt;/p&gt;
+</description>
+        <pubDate>Tue, 04 May 2021 00:00:00 +0200</pubDate>
+        <link>http://localhost:4000/blog/tech/linux/git/2021/05/04/How-to-edit-stuff-that-you've-already-commited-to-git/</link>
+        <guid isPermaLink="true">http://localhost:4000/blog/tech/linux/git/2021/05/04/How-to-edit-stuff-that-you've-already-commited-to-git/</guid>
+      </item>
+    
+      <item>
+        <title>Perl binaries are mismatched - the revenge of the lazy person</title>
+        <description>&lt;h1 id=&quot;the-uninvited-eldrich-terror&quot;&gt;The uninvited eldrich terror&lt;/h1&gt;
+
+&lt;p&gt;You use &lt;a href=&quot;https://metacpan.org/pod/local::lib&quot;&gt;local::lib&lt;/a&gt;, and the pain unfolds: A shell is started, and you find a dreaded:&lt;/p&gt;
+
+&lt;div class=&quot;language-perl highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;Cwd&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;c:&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;loadable&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;library&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;and&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;perl&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;binaries&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;are&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;mismatched&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;got&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;handshake&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;key&lt;/span&gt; &lt;span class=&quot;mh&quot;&gt;0xdb00080&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;needed&lt;/span&gt; &lt;span class=&quot;mh&quot;&gt;0xdb80080&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://media.giphy.com/media/CiJGnsh7wWXv2/giphy.gif&quot; alt=&quot;Pennywise, because I could not find the right gif, from the Uninvited, of Sabrina&apos;s netflix&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Which means: that the module (Cwd in this case) is not compatible (Because it’s an &lt;a href=&quot;http://modernperlbooks.com/mt/2009/05/perl-5-and-binary-compatibility.html&quot;&gt;XS module&lt;/a&gt;)
+with your current version of perl, installed on your system: Likely it was compiled for a previous version, leadin to those &lt;a href=&quot;https://rt.perl.org/Public/Bug/Display.html?id=133440&quot;&gt;binaries mismatching&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;dont-panic&quot;&gt;Don’t panic!&lt;/h2&gt;
+
+&lt;p&gt;I &lt;a href=&quot;/blog/2019/01/21/perl-binaries-are-mismatched.html&quot;&gt;wrote about this&lt;/a&gt; however, I left out how to get to the point where you have already an usable Perl again?&lt;/p&gt;
+
+&lt;h2 id=&quot;the-light&quot;&gt;The light&lt;/h2&gt;
+
+&lt;p&gt;Instead of downloading local::lib from git as I used to do… this time I decided to do it on a much simpler way: use &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;perl-local-lib&lt;/code&gt; from my distribution, and let it do the magic, I mean
+that’s why I run &lt;a href=&quot;https://get.opensuse.org&quot;&gt;openSUSE Tumbleweed&lt;/a&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; zypper in perl-local-lib
+ rm -rf perl5-old || echo &quot;First time eh?&quot;
+ mv perl5 perl5-old
+ perl -MCPAN -Mlocal::lib -e &apos;CPAN::install(App::cpanminus)&apos;
+ cpanm App::MigrateModules
+ perl-migrate-modules --from ~/perl5-old/lib/perl5 /usr/bin/perl
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Et voilà, ma chérie!&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://media.giphy.com/media/xT5LMDi8H2A1FtLlpC/giphy.gif&quot; alt=&quot;It&apos;s alive!&quot; /&gt;&lt;/p&gt;
+</description>
+        <pubDate>Tue, 09 Feb 2021 00:00:00 +0100</pubDate>
+        <link>http://localhost:4000/blog/linux/perl/2021/02/09/Perl-binaries-are-mismatched-the-revenge-of-the-lazy-person/</link>
+        <guid isPermaLink="true">http://localhost:4000/blog/linux/perl/2021/02/09/Perl-binaries-are-mismatched-the-revenge-of-the-lazy-person/</guid>
+      </item>
+    
+      <item>
+        <title>Cron do not send me empty emails</title>
+        <description>&lt;p&gt;Just in case, if you’ve ever wondered how to stop &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;cron&lt;/code&gt; from sending empty emails, a quick look at &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;man mail&lt;/code&gt; will give
+you the answer you’re looking for (if you know what you’re searching for):&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;    -E
+
+    If an outgoing message does not contain any text in its first or only message part, do not send it but discard it silently,
+    effectively setting the skipemptybody variable at program startup. This is useful for sending messages from scripts started 
+    by cron(8).
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;I got this after visiting couple of forums, and some threads at stack exchange, however &lt;a href=&quot;https://stackoverflow.com/a/14656511&quot;&gt;this one&lt;/a&gt; nailed it&lt;/p&gt;
+
+&lt;p&gt;So all you need to do is, fire up that &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;crontab -e&lt;/code&gt; and make your script run every five minutes, without fear of the noise&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;*/5 * * * * /usr/local/bin/only-talk-if-there-are-errors-script |&amp;amp; mail -E -r $(hostname)@opensuse.org -s &quot;[CRON][monitoring] foo bar $(date  --iso-8601=&apos;minutes&apos;)&quot;  do-not-spam-me@example.com
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;em&gt;Et voilà, ma chérie!&lt;/em&gt;
+&lt;img src=&quot;https://media.giphy.com/media/xT5LMDi8H2A1FtLlpC/giphy.gif&quot; alt=&quot;It&apos;s alive!&quot; /&gt;&lt;/p&gt;
+
+</description>
+        <pubDate>Tue, 26 Jan 2021 00:00:00 +0100</pubDate>
+        <link>http://localhost:4000/blog/linux/2021/01/26/Cron-do-not-send-me-empty-emails/</link>
+        <guid isPermaLink="true">http://localhost:4000/blog/linux/2021/01/26/Cron-do-not-send-me-empty-emails/</guid>
+      </item>
+    
+      <item>
+        <title>Quick and dirty ipmitool tutorial</title>
+        <description>&lt;h1 id=&quot;because-i-always-forget&quot;&gt;Because I always forget&lt;/h1&gt;
+
+&lt;h2 id=&quot;to-reboot-a-supermicro-server&quot;&gt;To reboot a SUPERMICRO server:&lt;/h2&gt;
+
+&lt;p&gt;Just remember that the default user/password might still be ADMIN/ADMIN :)&lt;/p&gt;
+
+&lt;p&gt;ipmitool -I lanplus -H $HOST -U USER -P PASSWORD power cycle&lt;/p&gt;
+
+&lt;h2 id=&quot;to-connect-to--the-serial-console&quot;&gt;To connect to  the serial console&lt;/h2&gt;
+
+&lt;p&gt;ipmitool -I lanplus -H $HOST -U USER -P PASSWORD sol activate&lt;/p&gt;
+
+</description>
+        <pubDate>Tue, 19 Jan 2021 00:00:00 +0100</pubDate>
+        <link>http://localhost:4000/blog/2021/01/19/Quick-and-dirty-ipmitool-tutorial/</link>
+        <guid isPermaLink="true">http://localhost:4000/blog/2021/01/19/Quick-and-dirty-ipmitool-tutorial/</guid>
+      </item>
+    
+      <item>
+        <title>Ext4 filesystem has no space left on device? You liar!</title>
+        <description>&lt;p&gt;&lt;img src=&quot;https://imgs.xkcd.com/comics/disk_usage.png&quot; alt=&quot;Disk usage&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;So, you wake up one day, and find that one of your programs, starts to complainig about “No space left on device”:&lt;/p&gt;
+
+&lt;p&gt;Next thing (Obviously, duh?) is to see what happened, so you fire up &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;du -h /tmp&lt;/code&gt; right?:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ du -h /tmp
+Filesystem              Size  Used Avail Use% Mounted on
+/dev/mapper/zkvm1-root  6.2G  4.6G  1.3G  79% /
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://media.giphy.com/media/SVgKToBLI6S6DUye1Y/giphy.gif&quot; alt=&quot;Well, yes, but no, ok? ok, ok!&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Wait, what? there’s space there! How can it be? In all my years of experience (+15!), I’ve never seen such thing!&lt;/p&gt;
+
+&lt;p&gt;Gods must be crazy!? or is it a 2020 thing?&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://media.giphy.com/media/VcWnY3R6YWVtC/giphy.gif&quot; alt=&quot;I disagree with you&quot; /&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ touch /tmp
+touch: cannot touch ‘/tmp/test’: No space left on device
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;&lt;img src=&quot;https://media.giphy.com/media/ToMjGpJ1lQiQarAftaU/giphy.gif&quot; alt=&quot;Wait, what? not even a small empty file?&quot; /&gt;
+&lt;img src=&quot;https://media.giphy.com/media/XdIOEZTt6dL7zTYWIo/giphy.gif&quot; alt=&quot;Ok...&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;After shamelessly googling/duckducking/searching, I ended up at https://blog.merovius.de/2013/10/20/ext4-mysterious-no-space-left-on.html
+but alas, that was not my problem, although… perhaps too many files?, let’s check with &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;du -i&lt;/code&gt; this time:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ du -i /tmp
+`Filesystem             Inodes  IUsed IFree IUse% Mounted on
+/dev/mapper/zkvm1-root 417792 417792     0  100% /
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://media.giphy.com/media/xT1R9Up1IZR6AtWdKE/giphy.gif&quot; alt=&quot;Of course!&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Because I’m super smart &lt;del&gt;I’m not&lt;/del&gt;, I now &lt;strong&gt;know&lt;/strong&gt; where my problem is, too many files!, time to start fixing this…&lt;/p&gt;
+
+&lt;p&gt;After few minutes of deleting files, moving things around, bind mounting things, I landed with the actual root cause:&lt;/p&gt;
+
+&lt;p&gt;Tons of messages waiting in &lt;a href=&quot;https://www.ibm.com/support/pages/varspoolclientmqueue-keeps-filling-and-causes-var-filesystem-usage-exceeded-threshold&quot;&gt;/var/spool/clientmqueue&lt;/a&gt; to be processed,
+I decided to delete some, after all, I don’t care about this system’s mails… so &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;find /var/spool/clientmqueue -type f -delete&lt;/code&gt; does the job, and allows me to have tab completion again! YAY!.&lt;/p&gt;
+
+&lt;p&gt;However, because deleting files blindly is never a good solution, I ended up in the link from above, the solution was quite simple:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ systemctl enable --now sendmail
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;&lt;img src=&quot;https://media.giphy.com/media/W35DnRbN4oDHIAApdk/giphy.gif&quot; alt=&quot;Smart idea!&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;After a while, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;root&lt;/code&gt; user started to receive system mail, and I could delete them afterwards :)&lt;/p&gt;
+
+&lt;p&gt;In the end, very simple solution (In my case!) rather than formatting or transfering all the data to a second drive, formatting &amp;amp; playing with inode size and stuff…&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Filesystem             Inodes IUsed  IFree IUse% Mounted on
+/dev/mapper/zkvm1-root 417792 92955 324837   23% /
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;&lt;em&gt;Et voilà, ma chérie!&lt;/em&gt;
+&lt;img src=&quot;https://media.giphy.com/media/xT5LMDi8H2A1FtLlpC/giphy.gif&quot; alt=&quot;It&apos;s alive!&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;This is a very long post, just to say:&lt;/p&gt;
+
+&lt;p&gt;ext4 no space left on device can mean: You have no space left, or you don’t have more room to store your files.&lt;/p&gt;
+</description>
+        <pubDate>Tue, 15 Sep 2020 00:00:00 +0200</pubDate>
+        <link>http://localhost:4000/blog/linux/tech/filesystems/2020/09/15/Ext4-filesystem-has-no-space-left-on-device-You-liar!/</link>
+        <guid isPermaLink="true">http://localhost:4000/blog/linux/tech/filesystems/2020/09/15/Ext4-filesystem-has-no-space-left-on-device-You-liar!/</guid>
+      </item>
+    
+      <item>
+        <title>Using python virtualenv inside vscode</title>
+        <description>&lt;h2 id=&quot;quick-and-dirty&quot;&gt;Quick and dirty&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Install  python3-virtualenvwrapper (via pip or via package manager)&lt;/li&gt;
+  &lt;li&gt;Export a workon directory: &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;export WORKON_HOME=/home/foursixnine/Projects/python-virtualenv&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;source virtualenvwrapper&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;foursixnine@deimos:~/Projects&amp;gt; source virtualenvwrapper    
+virtualenvwrapper.user_scripts creating /home/foursixnine/Projects/python-virtualenv/premkproject
+...
+virtualenvwrapper.user_scripts creating /home/foursixnine/Projects/python-virtualenv/get_env_details
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;mkvirtualenv newenv&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;foursixnine@deimos:~/Projects&amp;gt; mkvirtualenv newenv
+created virtual environment CPython3.8.3.final.0-64 &lt;span class=&quot;k&quot;&gt;in &lt;/span&gt;115ms
+  creator CPython3Posix&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;dest&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;/home/foursixnine/Projects/python-virtualenv/newenv, &lt;span class=&quot;nv&quot;&gt;clear&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;False, &lt;span class=&quot;nv&quot;&gt;global&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;False&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+  seeder FromAppData&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;download&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;False, &lt;span class=&quot;nv&quot;&gt;pip&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;latest, &lt;span class=&quot;nv&quot;&gt;setuptools&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;latest, &lt;span class=&quot;nv&quot;&gt;wheel&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;latest, &lt;span class=&quot;nv&quot;&gt;via&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;copy, &lt;span class=&quot;nv&quot;&gt;app_data_dir&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;/home/foursixnine/.local/share/virtualenv/seed-app-data/v1.0.1&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+  activators BashActivator,CShellActivator,FishActivator,PowerShellActivator,PythonActivator,XonshActivator
+virtualenvwrapper.user_scripts creating /home/foursixnine/Projects/python-virtualenv/newenv/bin/predeactivate
+...
+virtualenvwrapper.user_scripts creating /home/foursixnine/Projects/python-virtualenv/newenv/bin/get_env_details
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;By this point, you’re already inside &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;newenv&lt;/code&gt;:&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;newenv&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; foursixnine@deimos:~/Projects&amp;gt; 
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;You can create multiple virtual environments and switch among them using &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;workon $env&lt;/code&gt; so long as you have sourced &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;virtualenvwrapper&lt;/code&gt; and your &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;$WORKON_HOME&lt;/code&gt; is properly defined.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;real-business&quot;&gt;Real business&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Now, if you want to use vscode, remember that you will need to define properly &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;python.PythonPath&lt;/code&gt; for your workspace/project (I’m new to this, don’t hang me in a public square ok?), in this case, my env is called linkedinlearningaiml&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;python.pythonPath&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;/home/foursixnine/Projects/python-virtualenv/linkedinlearningaiml/bin/python&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Now your python code will be executed within the context of your virtual environment, so you can get down to serious (or not at all) python development, without screweing up your host or polluting the dependencies and stuff.&lt;/p&gt;
+
+&lt;p&gt;PS: Since wanted to be able to run standalone python files, I also needed to change a bit my launch.json (Maybe this is not needed?)&lt;/p&gt;
+
+&lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;w&quot;&gt;    &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;version&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;0.2.0&quot;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;configurations&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+        &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+            &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;name&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Python: Current File&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+            &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;type&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;python&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+            &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;request&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;launch&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+            &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;program&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;${file}&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+            &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;console&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;integratedTerminal&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+            &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;cwd&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;${fileDirname}&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+        &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;And off you go, how to use python virtualenv inside vscode&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Et voilà, ma chérie!&lt;/em&gt;
+&lt;img src=&quot;https://media.giphy.com/media/xT5LMDi8H2A1FtLlpC/giphy.gif&quot; alt=&quot;It&apos;s alive!&quot; /&gt;&lt;/p&gt;
+</description>
+        <pubDate>Sun, 14 Jun 2020 00:00:00 +0200</pubDate>
+        <link>http://localhost:4000/blog/2020/06/14/Using-python-virtualenv-inside-vscode/</link>
+        <guid isPermaLink="true">http://localhost:4000/blog/2020/06/14/Using-python-virtualenv-inside-vscode/</guid>
+      </item>
+    
+      <item>
+        <title>Looking for exceptions with awk</title>
+        <description>&lt;p&gt;Sometimes you just need to search using awk or want to use plain bash to search for an exception in a log file, it’s
+hard to go into google, stack overflow, duck duck go, or any other place to do a search, and find nothing, or at least
+a solution that fits your needs.&lt;/p&gt;
+
+&lt;p&gt;In my case, I wanted to know where a package was generating a conflict &lt;a href=&quot;https://github.com/os-autoinst/os-autoinst-distri-opensuse/pull/10259/files#diff-141f4b5a48eaecb0c631a0de23e41a51R503&quot;&gt;for a friend&lt;/a&gt;, and ended up scratching my head,
+because I didn’t want to write yet another domain specific function to use on the test framework of openQA, and I’m
+very stubborn, I ended up with the following solution&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;journalctl -k | awk &apos;BEGIN {print &quot;Error - &quot;,NR; group=0}
+/ACPI BIOS Error \(bug\)/,/ACPI Error: AE_NOT_FOUND/{ print group&quot;|&quot;, 
+	$0; if ($0 ~ /ACPI Error: AE_NOT_FOUND,/ ){ print &quot;EOL&quot;; group++ }; 
+}&apos;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;This is short for:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Define &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;$START_PATTERN as /ACPI BIOS Error \(bug\)/,&lt;/code&gt; and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;$END_PATTERN as /ACPI Error: AE_NOT_FOUND/&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;Look for &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;$START_PATTERN&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;Look for &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;$END_PATTERN&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;If you find &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;$END_PATTERN&lt;/code&gt; add an &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;EOL&lt;/code&gt; marker (that is not needed, since the group variable will be incremented)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;And there you go: How to search for exceptions in logs, of course it could be more complicated, because you can have nested
+cases and whatnot, but for now, this does exactly what I need:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;EOL
+10| May 20 12:38:36 deimos kernel: ACPI BIOS Error (bug): Could not resolve symbol [\_SB.PCI0.LPCB.HEC.CHRG], AE_NOT_FOUND (20200110/psargs-330)
+10| May 20 12:38:36 deimos kernel: ACPI Error: Aborting method \PNOT due to previous error (AE_NOT_FOUND) (20200110/psparse-529)
+10| May 20 12:38:36 deimos kernel: ACPI Error: Aborting method \_SB.AC._PSR due to previous error (AE_NOT_FOUND) (20200110/psparse-529)
+10| May 20 12:38:36 deimos kernel: ACPI Error: AE_NOT_FOUND, Error reading AC Adapter state (20200110/ac-115)
+EOL
+11| May 20 12:39:12 deimos kernel: ACPI BIOS Error (bug): Could not resolve symbol [\_SB.PCI0.LPCB.HEC.CHRG], AE_NOT_FOUND (20200110/psargs-330)
+11| May 20 12:39:12 deimos kernel: ACPI Error: Aborting method \PNOT due to previous error (AE_NOT_FOUND) (20200110/psparse-529)
+11| May 20 12:39:12 deimos kernel: ACPI Error: Aborting method \_SB.AC._PSR due to previous error (AE_NOT_FOUND) (20200110/psparse-529)
+11| May 20 12:39:12 deimos kernel: ACPI Error: AE_NOT_FOUND, Error reading AC Adapter state (20200110/ac-115)
+EOL
+12| May 20 13:37:41 deimos kernel: ACPI BIOS Error (bug): Could not resolve symbol [\_SB.PCI0.LPCB.HEC.CHRG], AE_NOT_FOUND (20200110/psargs-330)
+12| May 20 13:37:41 deimos kernel: ACPI Error: Aborting method \PNOT due to previous error (AE_NOT_FOUND) (20200110/psparse-529)
+12| May 20 13:37:41 deimos kernel: ACPI Error: Aborting method \_SB.AC._PSR due to previous error (AE_NOT_FOUND) (20200110/psparse-529)
+12| May 20 13:37:41 deimos kernel: ACPI Error: AE_NOT_FOUND, Error reading AC Adapter state (20200110/ac-115)
+EOL
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;So I could later write some code that looks per string, separates the string using the pipe &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;|&lt;/code&gt; discards the group id, and adds that record to an array
+of arrays or hashes: &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;[ {group: id, errors: [error string .. error string] ]&lt;/code&gt;&lt;/p&gt;
+</description>
+        <pubDate>Thu, 21 May 2020 00:00:00 +0200</pubDate>
+        <link>http://localhost:4000/blog/linux/tech/2020/05/21/Looking-for-exceptions-with-awk/</link>
+        <guid isPermaLink="true">http://localhost:4000/blog/linux/tech/2020/05/21/Looking-for-exceptions-with-awk/</guid>
+      </item>
+    
+      <item>
+        <title>How to import a gpg key on zypper (openSUSE)</title>
+        <description>&lt;p&gt;For some odd reason, I couldn’t find quickly (2 mins in the manpage and some others on DuckDuckGo) a way to import a
+GPG key.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://media.giphy.com/media/L3pfVwbsJbrk4/giphy.gif&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Just because one of the repos gives this ugly message:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Repository vscode does not define additional &apos;gpgkey=&apos; URLs.
+Warning: File &apos;repomd.xml&apos; from repository &apos;vscode&apos; is signed with an unknown key &apos;EB3E94ADBE1229CF&apos;.
+
+    Note: Signing data enables the recipient to verify that no modifications occurred after the data
+    were signed. Accepting data with no, wrong or unknown signature can lead to a corrupted system
+    and in extreme cases even to a system compromise.
+
+    Note: File &apos;repomd.xml&apos; is the repositories master index file. It ensures the integrity of the
+    whole repo.
+
+    Warning: We can&apos;t verify that no one meddled with this file, so it might not be trustworthy
+    anymore! You should not continue unless you know it&apos;s safe.
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;I know you can use &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;zypper ar --gpg-auto-import-keys&lt;/code&gt;, but I didn’t do it when I added it (and I’m too lazy to remove 
+the repo and add it again, just to see if it works)&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;rpm --import https://packages.microsoft.com/keys/microsoft.asc
+zypper ref
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+</description>
+        <pubDate>Thu, 07 May 2020 00:00:00 +0200</pubDate>
+        <link>http://localhost:4000/blog/linux/tech/2020/05/07/How-to-import-a-gpg-key-on-zypper-(openSUSE)/</link>
+        <guid isPermaLink="true">http://localhost:4000/blog/linux/tech/2020/05/07/How-to-import-a-gpg-key-on-zypper-(openSUSE)/</guid>
+      </item>
+    
+      <item>
+        <title>Roundcube smtp (250) authentication failed</title>
+        <description>&lt;p&gt;So, say you find yourself, somehow having the following error in the roundcube logs:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;[27-Sep-2019 12:44:48 +0000]: &amp;lt;f930f680&amp;gt; PHP Error: SMTP server does not support authentication (POST /?_task=mail&amp;amp;_unlock=loading1569588324419&amp;amp;_framed=1&amp;amp;_lang=es&amp;amp;_action=send)
+[27-Sep-2019 12:44:48 +0000]: &amp;lt;f930f680&amp;gt; SMTP Error: Authentication failure: SMTP server does not support authentication (Code: ) in /roundcube/program/lib/Roundcube/rcube.php on line 1674 (POST /correo/?_task=mail&amp;amp;_unlock=loading 1569588324419&amp;amp;_framed=1&amp;amp;_lang=es&amp;amp;_action=send)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;You have tried everything, but still can’t seem to be able to send email from roundcube, you keep getting this annoying
+“SMTP (250) authentication failed” notification, every time you click “Send”.&lt;/p&gt;
+
+&lt;p&gt;Well… Make sure that your server is connecting to the right place. It took me a while to realize that roundcube was
+trying to connect to localhost, but somehow the authentication mechanism stopped working (it was before upgrading).&lt;/p&gt;
+
+&lt;p&gt;Since I don’t really want to debug too much today (it’s friday after all), and because my configuration/use case is
+over ssl/tls, the solution to the probem was simply:&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;$config[&apos;smtp_server&apos;] = &apos;tls://services.host.co&apos;;&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Et voilà, ma chérie!&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://media.giphy.com/media/xT5LMDi8H2A1FtLlpC/giphy.gif&quot; alt=&quot;It&apos;s alive!&quot; /&gt;&lt;/p&gt;
+</description>
+        <pubDate>Fri, 27 Sep 2019 00:00:00 +0200</pubDate>
+        <link>http://localhost:4000/blog/2019/09/27/Roundcube-smtp-(250)-authentication-failed/</link>
+        <guid isPermaLink="true">http://localhost:4000/blog/2019/09/27/Roundcube-smtp-(250)-authentication-failed/</guid>
+      </item>
+    
+      <item>
+        <title>When find can&apos;t find</title>
+        <description>&lt;p&gt;If you happen to be using &lt;a href=&quot;http://man7.org/linux/man-pages/man1/find.1.html&quot;&gt;gnu find&lt;/a&gt; in the deadly combination with
+a directory that is a symlink (you just don’t know that yet), you will find face the hard truth that running:&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;find /path/to/directory -type f&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Will return &lt;em&gt;zero&lt;/em&gt;, &lt;strong&gt;nada&lt;/strong&gt;, &lt;em&gt;nichts&lt;/em&gt;, &lt;del&gt;meiyou&lt;/del&gt;, which is annoying.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://media.giphy.com/media/clupdT5vHL9GifMlnC/giphy.gif&quot; alt=&quot;where is it!&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;this will make you question your life decisions, and your knowledge on tools that you use daily, only to find out that
+the directory is actually a symlink :).&lt;/p&gt;
+
+&lt;p&gt;So next time you find yourself using &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;find&lt;/code&gt; and it returns nothing, but you are sure that your syntax is correct and get
+no errors, try adding the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;--fowllow&lt;/code&gt; or use the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;-L&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;` find -L /path/to/directory/with/symlink -type f`&lt;/p&gt;
+
+&lt;p&gt;This will do what you want :)&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://media.giphy.com/media/1FnPDkhFZDgoU/giphy.gif&quot; alt=&quot;Here is it!&quot; /&gt;&lt;/p&gt;
+</description>
+        <pubDate>Tue, 27 Aug 2019 00:00:00 +0200</pubDate>
+        <link>http://localhost:4000/blog/tech/2019/08/27/When-find-can't-find/</link>
+        <guid isPermaLink="true">http://localhost:4000/blog/tech/2019/08/27/When-find-can't-find/</guid>
+      </item>
+    
+      <item>
+        <title>Permission denied for hugepages in QEMU without libvirt</title>
+        <description>&lt;p&gt;So, say you’re running qemu, and decided to use hugepages, nice isn’t it? helps with performace and stuff, however
+a wild wall appears!&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; QEMU: qemu-system-aarch64: can&apos;t open backing store /dev/hugepages/ for guest RAM: Permission denied
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;This basically means that you’re using the amazing &lt;em&gt;-mem-path /dev/hugepages&lt;/em&gt;, and that QEMU running as an unprivileged user can’t
+write there… This is how it looked for me:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo -u _openqa-worker qemu-system-aarch64 -device virtio-gpu-pci -m 4094 -machine virt,gic-version=host -cpu host \ 
+  -mem-prealloc -mem-path /dev/hugepages -serial mon:stdio  -enable-kvm -no-shutdown -vnc :102,share=force-shared \ 
+  -cdrom openSUSE-Tumbleweed-DVD-aarch64-Snapshot20190607-Media.iso \ 
+  -pflash flash0.img -pflash flash1.img -drive if=none,file=opensuse-Tumbleweed-aarch64-20190607-gnome-x11@aarch64.qcow2,id=hd0 \ 
+  -device virtio-blk-device,drive=hd0
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;The machine tries to start, but utimately I get that dreadful message. 
+You can simply do a chmod to the directory, use an udev rule, and get away with it, it’s quick and does the job but also
+there are few options to solve this using libvirt, however if you’re not using &lt;a href=&quot;https://linux.die.net/man/8/hugeadm&quot;&gt;hugeadm&lt;/a&gt; 
+to manage those pools and let the operating system take care of it, likely the operating system will take care of this for you,
+so you can look to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/usr/lib/systemd/system/dev-hugepages.mount&lt;/code&gt;, since trying to add an udev rule failed for a colleague of mine,
+I decided to use the systemd approach, ending up with the following:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
+[Unit]
+Description=Systemd service to fix hugepages + qemu ram problems.
+After=dev-hugepages.mount
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/chmod o+w /dev/hugepages/
+
+[Install]
+WantedBy=multi-user.target
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+</description>
+        <pubDate>Tue, 18 Jun 2019 00:00:00 +0200</pubDate>
+        <link>http://localhost:4000/blog/2019/06/18/Permission-denied-for-hugepages-in-QEMU-without-libvirt/</link>
+        <guid isPermaLink="true">http://localhost:4000/blog/2019/06/18/Permission-denied-for-hugepages-in-QEMU-without-libvirt/</guid>
+      </item>
+    
+      <item>
+        <title>Table to json with jq and awk</title>
+        <description>&lt;h2 id=&quot;the-problem&quot;&gt;The problem&lt;/h2&gt;
+
+&lt;p&gt;Say you have a table that looks like this:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;AGGREGATE_NEEDED    1
+ARCH    x86_64
+BASE_TEST_ISSUES    NUMBER
+BUILD   :NUMBER:PACKAGE
+DISTRI  DISTRIBUTION
+FLAVOR  Server-DVD-Incidents-Install
+INCIDENT_ID 99999
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;It’s just that it contains about 78 or more entries. Of course for a very skilled engineer or a person with
+a lot of tricks under the hood, this might be a very trivial task in vim or something like this, I guess that
+with a couple of replaces here and there, you’d get somewhere; but I’m not skilled, other than at eating.&lt;/p&gt;
+
+&lt;h2 id=&quot;the-solution&quot;&gt;The Solution&lt;/h2&gt;
+
+&lt;p&gt;So I took my Key Value table saved it to a file and after googling a bit, now I’m more versed into awk :D:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;    cat FILE.txt | \ 
+    awk &apos;BEGIN { print &quot;{&quot; } \ 
+        { printf &quot;\&quot;%s\&quot;:\&quot;%s\&quot;,&quot;, $1,$2} \ 
+        END { print &quot;\&quot;MANUALLY_GENERATED_ISO_POST\&quot;:1 }&quot; }&apos;
+        | jq &amp;gt; x86_64-ready.json&apos;&quot;}&apos;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;I guess this could have been done easier and prettier, but fits my need and might save you too at some point.
+Just make sure you have &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;jq&lt;/code&gt; installed ok?&lt;/p&gt;
+</description>
+        <pubDate>Wed, 08 May 2019 00:00:00 +0200</pubDate>
+        <link>http://localhost:4000/blog/2019/05/08/Table-to-json/</link>
+        <guid isPermaLink="true">http://localhost:4000/blog/2019/05/08/Table-to-json/</guid>
+      </item>
+    
+      <item>
+        <title>About Perl and mismatched binaries</title>
+        <description>&lt;h1 id=&quot;the-horror&quot;&gt;The horror&lt;/h1&gt;
+
+&lt;p&gt;You happen to update your system (In my case, I use Tumbleweed or Gentoo) and there’s new version of Perl,
+at some point there’s the realization that you’re using &lt;a href=&quot;https://metacpan.org/pod/local::lib&quot;&gt;local::lib&lt;/a&gt;, and
+the pain unfolds: A shell is started, and you find a dreaded:&lt;/p&gt;
+
+&lt;div class=&quot;language-perl highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;Cwd&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;c:&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;loadable&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;library&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;and&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;perl&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;binaries&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;are&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;mismatched&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;got&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;handshake&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;key&lt;/span&gt; &lt;span class=&quot;mh&quot;&gt;0xdb00080&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;needed&lt;/span&gt; &lt;span class=&quot;mh&quot;&gt;0xdb80080&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Which means: that the module (Cwd in this case) is not compatible (Because it’s an &lt;a href=&quot;http://modernperlbooks.com/mt/2009/05/perl-5-and-binary-compatibility.html&quot;&gt;XS module&lt;/a&gt;)
+with your current version of perl, installed on your system: Likely it was compiled for a previous version, leadin to those &lt;a href=&quot;https://rt.perl.org/Public/Bug/Display.html?id=133440&quot;&gt;binaries mismatching&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;dont-panic&quot;&gt;Don’t panic!&lt;/h2&gt;
+
+&lt;p&gt;In the past, I used to reinstall my full local::lib directory, however after hanging out and asking few questions on #toolchain on irc.perl.org, I got to write (or rather hack, an ugly hack) a
+quick perl script to walk the &lt;a href=&quot;https://github.com/foursixnine/stunning-octo-chainsaw/blob/master/ll-walker.pl&quot;&gt;local::lib&lt;/a&gt; packages that were installed already, only looking at the specified
+directory… it worked well, gave me the list of what I needed so I could reinstall later, however Grinnz pointed me to his &lt;a href=&quot;https://bit.ly/2CwLXvb&quot;&gt;perl-migrate-modules&lt;/a&gt; script, to which after chatting a bit,
+he added the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;from&lt;/code&gt; switch, which allows people to reinstall all the modules that were present in an old local::lib directory:&lt;/p&gt;
+
+&lt;h2 id=&quot;the-light&quot;&gt;The light&lt;/h2&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# Migrate modules from an old (inactive) local::lib directory
+$ perl-migrate-modules --from ~/perl5-old/lib/perl5 /usr/bin/perl
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Hope you find it useful :)&lt;/p&gt;
+</description>
+        <pubDate>Mon, 21 Jan 2019 00:00:00 +0100</pubDate>
+        <link>http://localhost:4000/blog/2019/01/21/perl-binaries-are-mismatched/</link>
+        <guid isPermaLink="true">http://localhost:4000/blog/2019/01/21/perl-binaries-are-mismatched/</guid>
+      </item>
+    
+      <item>
+        <title>Open Build Service- Contributing on a project</title>
+        <description>&lt;p&gt;Here at SUSE we heavily use &lt;a href=&quot;http://openbuildservice.org&quot;&gt;Open Build Service&lt;/a&gt;,
+and often while collaborating on a project (In my case, &lt;a href=&quot;https://openqa.opensuse.org&quot;&gt;openQA&lt;/a&gt;) one has to add a new package
+as a dependency from time to time, or has to do a backport for an older SLE or openSUSE Leap release&lt;/p&gt;
+
+&lt;p&gt;It boils down to the following steps, in this case I wanted to change the project to build against
+SUSE:SLE-12-SPX:Update instead of SUSE:SLE-12-SPX:GM which is a &lt;a href=&quot;https://en.opensuse.org/openSUSE:Build_Service_supported_build_targets&quot;&gt;build target&lt;/a&gt; that will get the updates while the GM doesn’t,
+all this, because I wanted to add openvswitch to the project, so that we could use new features in our openQA deployments.&lt;/p&gt;
+
+&lt;p&gt;To do this, after setting up the obs account, it boils down to:&lt;/p&gt;
+
+&lt;p&gt;1- Branch your project
+2- &lt;a href=&quot;https://en.opensuse.org/openSUSE:Build_Service_Concept_project_linking&quot;&gt;Link&lt;/a&gt; your packages
+2- Modify the project metadata if needed
+3- Modify the project config if errors related to multiple choices appear (PostgreSQL will be there for sure!)
+4- Grab a cup of coffee/tea/water and do &lt;a href=&quot;https://en.opensuse.org/openSUSE:Build_Service_Tips_and_Tricks&quot;&gt;some reading&lt;/a&gt; while waiting for the build&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;# Branch the project&lt;/span&gt;
+osc branch devel:openQA:SLE-12
+
+&lt;span class=&quot;c&quot;&gt;# Link the new package&lt;/span&gt;
+osc linkpac openSUSE:Factory  openvswitch
+&lt;span class=&quot;c&quot;&gt;# More and more packages will say that their dependencies cannot be resolved, this is&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# you might spend some time here adding bunch of dependencies :)&lt;/span&gt;
+osc linkpac openSUSE:Factory  dpdk devel:openQA:SLE-12
+osc linkpac openSUSE:Factory  python-six devel:openQA:SLE-12
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;By this point you might get error messages on the webUI stating that:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$a_package: have choice for $conflicting_package needed by $a_package: $options
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;As an example, it might happen that you see postgres-server there, having
+postgres96-server and postgres94-server as &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;$options&lt;/code&gt;, you’ve got to choose
+your destiny!.&lt;/p&gt;
+
+&lt;p&gt;When you find this, it’s time to edit the project configuration:&lt;/p&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# Since
+osc meta prjconf devel:openQA:SLE-12 -e
+# An editor will open and you will be able to change stuff
+# Remember that you need write permissions on the project!
+...
+Prefer: postgresql96-devel
+Prefer: postgresql96-server
+Prefer: python-dateutil
+...
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Modify the project metadata to use :Updates instead of :GM, and change architectures
+if you need to do so.&lt;/p&gt;
+
+&lt;div class=&quot;language-xml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# same as before: An editor will open, and you will be able to edit stuff
+ osc meta prjconf devel:openQA:SLE-12 -e
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;repository&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;SLE_12_SP4&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;path&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;project=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;SUSE:SLE-12-SP4:Update&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;repository=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;standard&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
+     &lt;span class=&quot;nt&quot;&gt;&amp;lt;arch&amp;gt;&lt;/span&gt;x86_64&lt;span class=&quot;nt&quot;&gt;&amp;lt;/arch&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;arch&amp;gt;&lt;/span&gt;aarch64&lt;span class=&quot;nt&quot;&gt;&amp;lt;/arch&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;arch&amp;gt;&lt;/span&gt;ppc64le&lt;span class=&quot;nt&quot;&gt;&amp;lt;/arch&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;/repository&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;After this, a project rebuild will take place, sit down and give some more reading :)&lt;/p&gt;
+</description>
+        <pubDate>Mon, 21 Jan 2019 00:00:00 +0100</pubDate>
+        <link>http://localhost:4000/blog/2019/01/21/Open-Build-Service-Contributing-on-a-project/</link>
+        <guid isPermaLink="true">http://localhost:4000/blog/2019/01/21/Open-Build-Service-Contributing-on-a-project/</guid>
+      </item>
+    
+      <item>
+        <title>gentoo eix-update failure</title>
+        <description>&lt;h2 id=&quot;summary&quot;&gt;Summary&lt;/h2&gt;
+
+&lt;p&gt;If you are having the following error on your Gentoo system:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; Can&apos;t open the database file &apos;/var/cache/eix/portage.eix&apos; for writing (mode = &apos;wb&apos;) 
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Don’t waste your time, simply the /var/cache/eix directory is not present and/or writeable by the eix/portage use&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;mkdir -p /var/cache/eix
+chmod +w /var/cache/eix*
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Basic story is that eix will drop privileges to portage user when ran as root.&lt;/p&gt;
+</description>
+        <pubDate>Sun, 04 Nov 2018 00:00:00 +0100</pubDate>
+        <link>http://localhost:4000/blog/2018/11/04/gentoo-eix-update-failure/</link>
+        <guid isPermaLink="true">http://localhost:4000/blog/2018/11/04/gentoo-eix-update-failure/</guid>
+      </item>
+    
+      <item>
+        <title>Setting up postfix, dovecot and sieve</title>
+        <description>&lt;h1 id=&quot;the-horror&quot;&gt;The horror&lt;/h1&gt;
+&lt;p&gt;While trying to set up my mail system, I ran into multiple tutorials to figure
+out what was the best way to avoid multiple error messages, mainly because you,
+like me (you silly human!), simply copy and pasted random stuff from stack 
+overflow, and tutorials in howtoforge and places like that…&lt;/p&gt;
+
+&lt;h2 id=&quot;the-mistakes&quot;&gt;The mistakes&lt;/h2&gt;
+&lt;p&gt;You tried something like this&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;spamassassin unix - n n - - pipe flags=DROhu user=vmail argv=/usr/bin/spamc -e /usr/lib/dovecot/deliver -f ${sender} -d ${user}@${nexthop} 
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;or this:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;mailbox_transport = lmtp:unix:private/lmtp
+virtual_transport = lmtp:unix:private/lmtp
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;the-pain&quot;&gt;The pain&lt;/h2&gt;
+&lt;p&gt;so you ended up with something that looks similar to this:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Oct 24 01:13:24 nergal postfix/pipe[10207]: fatal: get_service_attr: unknown username: vmail
+Oct 24 01:13:25 nergal postfix/master[10104]: warning: process /usr/lib/postfix/bin//pipe pid 10207 exit status 1
+Oct 24 01:13:25 nergal postfix/qmgr[10106]: warning: private/spamassassin socket: malformed response
+Oct 24 01:13:25 nergal postfix/master[10104]: warning: /usr/lib/postfix/bin//pipe: bad command startup -- throttling
+Oct 24 01:13:25 nergal postfix/qmgr[10106]: warning: transport spamassassin failure -- see a previous warning/fatal/panic logfile record for the problem description
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;resignation&quot;&gt;Resignation&lt;/h2&gt;
+
+&lt;p&gt;So what worked for me was to leave the service in the master.cf as I had it working…&lt;/p&gt;
+
+&lt;p&gt;and simply add to master.cf&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;spamassassin unix - n   n - - pipe flags=R     user=app argv=/usr/bin/spamc -e /usr/sbin/sendmail -oi -f ${sender} ${recipient}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;and in the main.cf&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;mailbox_command = /usr/lib/dovecot/deliver
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;the-light&quot;&gt;The light&lt;/h2&gt;
+
+&lt;p&gt;Sieve filtering started to work after these changes :)&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Check &lt;a href=&quot;https://www.vultr.com/docs/simple-mailserver-postfix-dovecot-sieve-centos-7&quot;&gt;This article&lt;/a&gt;
+that gave me that life saving line&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        <pubDate>Fri, 26 Oct 2018 00:00:00 +0200</pubDate>
+        <link>http://localhost:4000/blog/2018/10/26/postfix-dovecot-sieve/</link>
+        <guid isPermaLink="true">http://localhost:4000/blog/2018/10/26/postfix-dovecot-sieve/</guid>
+      </item>
+    
+      <item>
+        <title>Visa, Venezuela, Prorroga</title>
+        <description>&lt;h1 id=&quot;como-renovar-visa-como-venezolano-con-prorroga-y-no-morir-en-el-intento&quot;&gt;Como renovar visa como Venezolano con prorroga y no morir en el intento&lt;/h1&gt;
+
+&lt;p&gt;Si llegaste hasta este lugar, es porque eres posiblemente Venezolano, y estas en la penosa necesidad de necesitar una prorroga, 
+pero tambien debes renovar tu visa de residente sea en el pais que estes.&lt;/p&gt;
+
+&lt;p&gt;Ya que no encontre informacion clara de el proceso, aca dejo los pasos que tuve que seguir en Alemania:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Solicitar la prorroga en la pagina de Saime, y pagar el monto.&lt;/li&gt;
+  &lt;li&gt;Mientras llega la prorroga, llama a la embajada de Venezuela que te corresponde y solicita una constancia de tramite de prorroga.&lt;/li&gt;
+  &lt;li&gt;Comunicate con la autoridad de migracion de el pais donde necesites renovar tu visa, y solicita la extension de tu visa, asegurate de entregar la constancia de que estas tramitando tu prorroga.&lt;/li&gt;
+  &lt;li&gt;En el transcurso del tiempo entre que solicitas la cita para extender tu visa, y el momento de la cita, puede ser que la prorroga te llegue, aparecete en la cita con tu flamante prorroga, si esta no llega, te otorgaran un permiso temporal, mientras te llega la prorroga, una vez que te llegue, dirigete al paso 3.&lt;/li&gt;
+  &lt;li&gt;Disfrute de dos años mas de estancia :)&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&quot;cuanto-tiempo-toma&quot;&gt;Cuanto tiempo toma?&lt;/h2&gt;
+
+&lt;p&gt;Entropia. No estoy seguro de cuanto tiempo toma, hay personas a las que le toma un par de meses, y a otros les toma 3-6 meses… asi que a esperar.&lt;/p&gt;
+
+&lt;h2 id=&quot;no-se-como-solicitar-la-prorroga&quot;&gt;No se como solicitar la prorroga!&lt;/h2&gt;
+
+&lt;p&gt;Una explicacion flash: Una vez que ingreses con tu usuario y contraseña en la pagina de saime:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Situate en la opcion “En el extranjero” - &lt;img src=&quot;/assets/images/prorroga/prorroga-1.jpg&quot; alt=&quot;Paso 1&quot; /&gt;&lt;/li&gt;
+  &lt;li&gt;Mueve el mouse (Horizontalmente funciona bastante bien) hacia la opcion: “Obtencion de prorroga de pasaporte electronico” &lt;img src=&quot;/assets/images/prorroga/prorroga-2.jpg&quot; alt=&quot;paso 2&quot; /&gt;&lt;/li&gt;
+  &lt;li&gt;Luego de ver un anuncio sobre la prorroa, deberias poder ver esto: &lt;img src=&quot;/assets/images/prorroga/prorroga-3.jpg&quot; alt=&quot;paso 3&quot; /&gt;&lt;/li&gt;
+  &lt;li&gt;En caso de que los pasos arriba mencionados no funcionen, una vez que logres ingresar a la web de saime con tu usuario y contraseña, puedes intentar esta url directamente: https://tramites.saime.gob.ve/index.php?r=inicio/inicio/prorrogaconsular&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Si tienes alguna duda, puedes escribirme a @foursixnine en instagram o en twitter, o en ‘i+blog @ foursixnine &lt;em&gt;punto&lt;/em&gt; io’&lt;/p&gt;
+</description>
+        <pubDate>Tue, 23 Oct 2018 00:00:00 +0200</pubDate>
+        <link>http://localhost:4000/blog/venezuela/2018/10/23/prorroga-venezolana/</link>
+        <guid isPermaLink="true">http://localhost:4000/blog/venezuela/2018/10/23/prorroga-venezolana/</guid>
+      </item>
+    
+      <item>
+        <title>Merge two git repositories</title>
+        <description>&lt;p&gt;I just followed this &lt;a href=&quot;https://medium.com/@spences10/git-allow-unrelated-histories-a39a3814b981&quot;&gt;medium post&lt;/a&gt;, but long story short:&lt;/p&gt;
+
+&lt;p&gt;Check out the origin/master branch and make sure my local master, is equal to
+origin, then push it to my fork (I seldomly do git pull on master).&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; git fetch origin
+ git checkout master
+ git reset &lt;span class=&quot;nt&quot;&gt;--hard&lt;/span&gt; origin/master
+ git push foursixnine
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;I needed to add the remote that belongs to a complete different repository:&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; git remote add acarvajal gitlab@myhost:acarvajal/openqa-monitoring.git
+ git fetch acarvajal
+ git checkout &lt;span class=&quot;nt&quot;&gt;-b&lt;/span&gt; merge-monitoring
+ git merge acarvajal/master &lt;span class=&quot;nt&quot;&gt;--allow-unrelated-histories&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Tadam! my changes are there!&lt;/p&gt;
+
+&lt;p&gt;Since I want everything inside a specific directory:&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; &lt;span class=&quot;nb&quot;&gt;mkdir &lt;/span&gt;openqa/monitoring
+ git &lt;span class=&quot;nb&quot;&gt;mv&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;${&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;allmyfiles&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;}&lt;/span&gt; openqa/monitoring/
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Since the unrelated repository had a README.md file, I need to make sure that
+both of them make it into the cut, the one from my original repo, and the other
+from the new unrelated repo:&lt;/p&gt;
+
+&lt;p&gt;Following command means: checkout README.md from acarvajal/master.&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; git checkout acarvajal/master &lt;span class=&quot;nt&quot;&gt;--&lt;/span&gt;  README.md
+ git &lt;span class=&quot;nb&quot;&gt;mv &lt;/span&gt;README.md openqa/monitoring/
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Following command means: checkout README.md from origin/master.&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; git checkout origin/master &lt;span class=&quot;nt&quot;&gt;--&lt;/span&gt;  README.md
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Commit changes, push to my fork and open pull request :)&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; git commit
+ git push foursixnine
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+</description>
+        <pubDate>Wed, 11 Jul 2018 00:00:00 +0200</pubDate>
+        <link>http://localhost:4000/blog/tech/2018/07/11/git-without-history/</link>
+        <guid isPermaLink="true">http://localhost:4000/blog/tech/2018/07/11/git-without-history/</guid>
+      </item>
+    
+      <item>
+        <title>Insomnia</title>
+        <description>&lt;p&gt;&lt;img src=&quot;https://imgs.xkcd.com/comics/insomnia.png&quot; alt=&quot;Insomnia from XKCD&quot; /&gt;&lt;/p&gt;
+</description>
+        <pubDate>Sat, 29 Aug 2009 00:00:00 +0200</pubDate>
+        <link>http://localhost:4000/blog/2009/08/29/Insomnia/</link>
+        <guid isPermaLink="true">http://localhost:4000/blog/2009/08/29/Insomnia/</guid>
+      </item>
+    
+
+    
+      
+        
+      
+    
+      
+        
+          <item>
+            <title>About</title>
+            <description>&lt;p&gt;You love minimalism, want to be productive focusing only on the important things and want to take jekyll to the next level, Sinai is designed for you. Sinai focus on showing your content in a clean and simple way, focus on images, typography, and white space.&lt;/p&gt;
+
+&lt;p&gt;This is the base Jekyll theme. You can find out more info about customizing your Jekyll theme, as well as basic Jekyll usage documentation at &lt;a href=&quot;http://jekyllrb.com/&quot;&gt;jekyllrb.com&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Lorem ipsum dolor sit amet, vix ut case porro facilisis, alia possit neglegentur vis te. Has cu eirmod abhorreant, vel civibus efficiantur cu. Eu summo elitr vix, iusto putant maluisset per ut, ne etiam vivendum adipisci vel. Vis omnis tempor accusam ei, justo perpetua liberavisse cu qui. Saperet aliquando adipiscing ius ne, ne facer euripidis est. Pro mundi nostrum suavitate et.&lt;/p&gt;
+</description>
+            <link>http://localhost:4000/about.html</link>
+          </item>
+        
+      
+    
+      
+    
+      
+    
+      
+        
+          <item>
+            <title>Style Guide</title>
+            <description>At [Aspire Themes](http://aspirethemes.com/) I use a lot of tools to help me create WordPress, Ghost and Jekyll themes. Tools will range from development, design, services, hosting and automation.
+
+Graphic design is the paradise of **individuality**, *eccentricity*, heresy, abnormality, hobbies, and humors. — George Santayana.
+
+---
+
+# Simple default styles for headings
+
+## Simple default styles for headings
+
+### Simple default styles for headings
+
+#### Simple default styles for headings
+
+##### Simple default styles for headings
+
+###### Simple default styles for headings
+
+---
+
+* Ut at interdum nunc. Maecenas commodo turpis quis elementum gravida.
+* Nunc ac sapien tellus. Quisque risus enim, tempus eget porttitor.
+* Donec nibh massa, rutrum a sollicitudin eu, lacinia in lorem.
+
+---
+
+1. Ut at interdum nunc. Maecenas commodo turpis quis elementum gravida.
+2. Nunc ac sapien tellus. Quisque risus enim, tempus eget porttitor in.
+3. Donec nibh massa, rutrum a sollicitudin eu.
+
+---
+
+&gt; Graphic design is the paradise of individuality, eccentricity, heresy, abnormality, hobbies, and humors. — George Santayana
+
+---
+
+&lt;p&gt;You can use the mark tag to &lt;mark&gt;highlight&lt;/mark&gt; text.&lt;/p&gt;
+&lt;p&gt;&lt;del&gt;This line of text is meant to be treated as deleted text.&lt;/del&gt;&lt;/p&gt;
+&lt;p&gt;&lt;u&gt;This line of text will render as underlined&lt;/u&gt;&lt;/p&gt;
+&lt;p&gt;&lt;small&gt;This line of text is meant to be treated as fine print.&lt;/small&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;This line rendered as bold text.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;This line rendered as italicized text.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;abbr title=&quot;attribute&quot;&gt;attr&lt;/abbr&gt;&lt;/p&gt;
+&lt;p&gt;&lt;abbr title=&quot;HyperText Markup Language&quot; class=&quot;initialism&quot;&gt;HTML&lt;/abbr&gt;&lt;/p&gt;
+
+---
+
+### Responsive Tables
+
+&lt;div class=&apos;responsive-table&apos;&gt;
+&lt;table&gt;
+      &lt;thead&gt;
+        &lt;tr&gt;
+          &lt;th scope=&quot;col&quot;&gt;#&lt;/th&gt;
+          &lt;th scope=&quot;col&quot;&gt;Heading&lt;/th&gt;
+          &lt;th scope=&quot;col&quot;&gt;Heading&lt;/th&gt;
+          &lt;th scope=&quot;col&quot;&gt;Heading&lt;/th&gt;
+          &lt;th scope=&quot;col&quot;&gt;Heading&lt;/th&gt;
+          &lt;th scope=&quot;col&quot;&gt;Heading&lt;/th&gt;
+          &lt;th scope=&quot;col&quot;&gt;Heading&lt;/th&gt;
+          &lt;th scope=&quot;col&quot;&gt;Heading&lt;/th&gt;
+          &lt;th scope=&quot;col&quot;&gt;Heading&lt;/th&gt;
+          &lt;th scope=&quot;col&quot;&gt;Heading&lt;/th&gt;
+        &lt;/tr&gt;
+      &lt;/thead&gt;
+      &lt;tbody&gt;
+        &lt;tr&gt;
+          &lt;th scope=&quot;row&quot;&gt;1&lt;/th&gt;
+          &lt;td&gt;Cell&lt;/td&gt;
+          &lt;td&gt;Cell&lt;/td&gt;
+          &lt;td&gt;Cell&lt;/td&gt;
+          &lt;td&gt;Cell&lt;/td&gt;
+          &lt;td&gt;Cell&lt;/td&gt;
+          &lt;td&gt;Cell&lt;/td&gt;
+          &lt;td&gt;Cell&lt;/td&gt;
+          &lt;td&gt;Cell&lt;/td&gt;
+          &lt;td&gt;Cell&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+          &lt;th scope=&quot;row&quot;&gt;2&lt;/th&gt;
+          &lt;td&gt;Cell&lt;/td&gt;
+          &lt;td&gt;Cell&lt;/td&gt;
+          &lt;td&gt;Cell&lt;/td&gt;
+          &lt;td&gt;Cell&lt;/td&gt;
+          &lt;td&gt;Cell&lt;/td&gt;
+          &lt;td&gt;Cell&lt;/td&gt;
+          &lt;td&gt;Cell&lt;/td&gt;
+          &lt;td&gt;Cell&lt;/td&gt;
+          &lt;td&gt;Cell&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+          &lt;th scope=&quot;row&quot;&gt;3&lt;/th&gt;
+          &lt;td&gt;Cell&lt;/td&gt;
+          &lt;td&gt;Cell&lt;/td&gt;
+          &lt;td&gt;Cell&lt;/td&gt;
+          &lt;td&gt;Cell&lt;/td&gt;
+          &lt;td&gt;Cell&lt;/td&gt;
+          &lt;td&gt;Cell&lt;/td&gt;
+          &lt;td&gt;Cell&lt;/td&gt;
+          &lt;td&gt;Cell&lt;/td&gt;
+          &lt;td&gt;Cell&lt;/td&gt;
+        &lt;/tr&gt;
+      &lt;/tbody&gt;
+    &lt;/table&gt;
+&lt;/div&gt;
+
+---
+
+### YouTube Responsive Embed
+
+&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/nuwjUZCSB2Y?rel=0&amp;amp;controls=0&amp;amp;showinfo=0&quot; frameborder=&quot;0&quot; allow=&quot;autoplay; encrypted-media&quot; allowfullscreen&gt;&lt;/iframe&gt;
+
+---
+
+### Vimeo Responsive Embed
+
+&lt;iframe src=&quot;https://player.vimeo.com/video/212114694?title=0&amp;byline=0&amp;portrait=0&quot; width=&quot;640&quot; height=&quot;360&quot; frameborder=&quot;0&quot; webkitallowfullscreen mozallowfullscreen allowfullscreen&gt;&lt;/iframe&gt;
+
+---
+
+### TED Responsive Embed
+
+&lt;iframe src=&quot;https://embed.ted.com/talks/ted_halstead_a_climate_solution_where_all_sides_can_win&quot; width=&quot;640&quot; height=&quot;360&quot; frameborder=&quot;0&quot; scrolling=&quot;no&quot; allowfullscreen&gt;&lt;/iframe&gt;
+
+---
+
+### Twitch Responsive Embed
+
+&lt;iframe src=&quot;https://player.twitch.tv/?autoplay=false&amp;video=v248755437&quot; frameborder=&quot;0&quot; allowfullscreen=&quot;true&quot; scrolling=&quot;no&quot; height=&quot;378&quot; width=&quot;620&quot;&gt;&lt;/iframe&gt;
+
+---
+
+### SoundCloud Embed
+
+&lt;iframe width=&quot;100%&quot; height=&quot;166&quot; scrolling=&quot;no&quot; frameborder=&quot;no&quot; src=&quot;https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/29738591&amp;amp;color=ff5500&amp;amp;auto_play=false&amp;amp;hide_related=false&amp;amp;show_comments=true&amp;amp;show_user=true&amp;amp;show_reposts=false&quot;&gt;&lt;/iframe&gt;
+
+---
+
+### CodePen Embed
+
+&lt;p data-height=&quot;265&quot; data-theme-id=&quot;light&quot; data-slug-hash=&quot;YWvpRo&quot; data-default-tab=&quot;css,result&quot; data-user=&quot;kharrop&quot; data-embed-version=&quot;2&quot; data-pen-title=&quot;Referral Form&quot; class=&quot;codepen&quot;&gt;&lt;/p&gt;
+&lt;script async src=&quot;https://production-assets.codepen.io/assets/embed/ei.js&quot;&gt;&lt;/script&gt;
+
+---
+
+### Instagram Embed
+
+  &lt;blockquote class=&quot;instagram-media&quot; data-instgrm-permalink=&quot;https://www.instagram.com/p/BhFTg6uhNRi/&quot; data-instgrm-version=&quot;8&quot; style=&quot; background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin: 1px; max-width:658px; padding:0; width:99.375%; width:-webkit-calc(100% - 2px); width:calc(100% - 2px);&quot;&gt;&lt;div style=&quot;padding:8px;&quot;&gt; &lt;div style=&quot; background:#F8F8F8; line-height:0; margin-top:40px; padding:50.0% 0; text-align:center; width:100%;&quot;&gt; &lt;div style=&quot; background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACwAAAAsCAMAAAApWqozAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAMUExURczMzPf399fX1+bm5mzY9AMAAADiSURBVDjLvZXbEsMgCES5/P8/t9FuRVCRmU73JWlzosgSIIZURCjo/ad+EQJJB4Hv8BFt+IDpQoCx1wjOSBFhh2XssxEIYn3ulI/6MNReE07UIWJEv8UEOWDS88LY97kqyTliJKKtuYBbruAyVh5wOHiXmpi5we58Ek028czwyuQdLKPG1Bkb4NnM+VeAnfHqn1k4+GPT6uGQcvu2h2OVuIf/gWUFyy8OWEpdyZSa3aVCqpVoVvzZZ2VTnn2wU8qzVjDDetO90GSy9mVLqtgYSy231MxrY6I2gGqjrTY0L8fxCxfCBbhWrsYYAAAAAElFTkSuQmCC); display:block; height:44px; margin:0 auto -44px; position:relative; top:-22px; width:44px;&quot;&gt;&lt;/div&gt;&lt;/div&gt;&lt;p style=&quot; color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; line-height:17px; margin-bottom:0; margin-top:8px; overflow:hidden; padding:8px 0 7px; text-align:center; text-overflow:ellipsis; white-space:nowrap;&quot;&gt;&lt;a href=&quot;https://www.instagram.com/p/BhFTg6uhNRi/&quot; style=&quot; color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:normal; line-height:17px; text-decoration:none;&quot; target=&quot;_blank&quot;&gt;A post shared by Ahmad Ajmi (@ahmadajme)&lt;/a&gt; on &lt;time style=&quot; font-family:Arial,sans-serif; font-size:14px; line-height:17px;&quot; datetime=&quot;2018-04-02T21:18:58+00:00&quot;&gt;Apr 2, 2018 at 2:18pm PDT&lt;/time&gt;&lt;/p&gt;&lt;/div&gt;&lt;/blockquote&gt; &lt;script async defer src=&quot;//www.instagram.com/embed.js&quot;&gt;&lt;/script&gt;
+
+---
+
+### Twitter Embed
+
+&lt;blockquote class=&quot;twitter-tweet&quot; data-lang=&quot;en&quot;&gt;&lt;p lang=&quot;en&quot; dir=&quot;ltr&quot;&gt;Very excited to release Sinai, a new Responsive &amp;amp; Multipurpose Ghost Theme 🚀🚀&lt;a href=&quot;https://t.co/LATsykOLDJ&quot;&gt;https://t.co/LATsykOLDJ&lt;/a&gt; &lt;a href=&quot;https://t.co/zG2PFVwe7G&quot;&gt;pic.twitter.com/zG2PFVwe7G&lt;/a&gt;&lt;/p&gt;&amp;mdash; Aspire Themes (@aspirethemes) &lt;a href=&quot;https://twitter.com/aspirethemes/status/944865769300660225?ref_src=twsrc%5Etfw&quot;&gt;December 24, 2017&lt;/a&gt;&lt;/blockquote&gt;
+&lt;script async src=&quot;https://platform.twitter.com/widgets.js&quot; charset=&quot;utf-8&quot;&gt;&lt;/script&gt;
+
+---
+
+### Responsive &amp; Medium Style Image Zoom
+
+Click the image to zoom it :)
+
+![styleguide](/images/posts/22.jpg)
+
+---
+
+### Syntax Highlighting
+
+{% highlight js %}
+&apos;use strict&apos;;
+var markdown = require(&apos;markdown&apos;).markdown;
+function Editor(input, preview) {
+  this.update = function() {
+    preview.innerHTML = markdown.toHTML(input.value);
+  };
+  input.editor = this;
+  this.update();
+}
+{% endhighlight %}
+
+You can add inline code just like this, E.g. `.code { color: #fff; }`
+
+{% highlight css %}
+pre {
+  background-color: #f4f4f4;
+  max-width: 100%;
+  overflow: auto;
+}
+{% endhighlight %}
+
+---
+
+### GitHub gist Embed
+
+&lt;script src=&quot;https://gist.github.com/ahmadajmi/dbb4f713317721668bcbc39420562afc.js&quot;&gt;&lt;/script&gt;
+
+---
+
+### Input Style
+
+&lt;input type=&quot;text&quot; placeholder=&quot;I&apos;m an input field!&quot;&gt;
+
+---
+
+### Buttons Style
+
+&lt;button class=&apos;c-btn c-btn--small&apos;&gt;Button&lt;/button&gt;
+
+&lt;button class=&apos;c-btn&apos;&gt;Button&lt;/button&gt;
+
+&lt;button class=&apos;c-btn c-btn--full&apos;&gt;Button&lt;/button&gt;
+
+---
+
+{% highlight html %}
+&lt;button class=&apos;c-btn&apos;&gt;Button&lt;/button&gt;
+&lt;button class=&apos;c-btn c-btn--small&apos;&gt;Button&lt;/button&gt;
+&lt;button class=&apos;c-btn c-btn--full&apos;&gt;Button&lt;/button&gt;
+{% endhighlight %}
+
+---
+
+&lt;button class=&apos;c-btn c-btn--active c-btn--small&apos;&gt;Button&lt;/button&gt;
+
+&lt;button class=&apos;c-btn c-btn--active&apos;&gt;Button&lt;/button&gt;
+
+&lt;button class=&apos;c-btn c-btn--active c-btn--full&apos;&gt;Button&lt;/button&gt;
+
+---
+
+{% highlight html %}
+&lt;button class=&apos;c-btn c-btn--active&apos;&gt;Button&lt;/button&gt;
+&lt;button class=&apos;c-btn c-btn--active c-btn--small&apos;&gt;Button&lt;/button&gt;
+&lt;button class=&apos;c-btn c-btn--active c-btn--full&apos;&gt;Button&lt;/button&gt;
+{% endhighlight %}</description>
+            <link>http://localhost:4000/style-guide.html</link>
+          </item>
+        
+      
+    
+      
+    
+      
+    
+      
+    
+
+  </channel>
+</rss>
