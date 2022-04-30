@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem "github-pages", "~> 226", group: :jekyll_plugins
+gem "github-pages", "~> 225", group: :jekyll_plugins
 gem 'bundler'
 gem 'jekyll'
 gem 'jekyll-paginate'
