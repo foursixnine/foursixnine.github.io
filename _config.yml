@@ -1,15 +1,59 @@
-# General Jekyll Config
-url: https://foursixnine.io
-exclude: [LICENSE, CNAME, README.md, .gitignore, Gemfile, Gemfile.lock]
-destination:  _site/
-plugins_dir:  lagom/_plugins/
-layouts_dir:  lagom/_layouts/
-includes_dir: _includes/
-exclude:
-  - lagom/
-data_dir: _data
+# Welcome to Sinai Jekyll Theme!
+#
+# This config file is meant for settings that affect your whole blog, values
+# which you are expected to set up once and rarely need to edit after that.
+# For technical reasons, this file is *NOT* reloaded automatically when you use
+# 'jekyll serve'. If you change this file, please restart the server process.
 
-source:          .
-#plugins_dir:     _plugins
-layouts_dir:     lagom/_layouts
-includes_dir:    lagom/_includes
+theme_version: 1.0.2
+
+# Site settings
+#title:              Sinai
+logo:               https://www.gravatar.com/avatar/191cf2f9dc67c43e004509fceb2ad9a8?s=200 
+#description:        Thoughts, Stories and Ideas
+domain:             foursixnine.io
+baseurl:            '' # The subpath of your site, e.g. /blog
+url:                'https://foursixnine.io/' # The base hostname & protocol for your site
+twitter:            https://twitter.com/foursixnine
+facebook:           https://www.facebook.com/foursixnine
+instagram:          https://www.instagram.com/foursixnine
+linkedin:           https://www.instagram.com/foursixnine
+
+title: foursixnine's lair
+name: Santiago Zarate
+email: santiago+blog AT zarate.co
+tagline: "Abandon all hope!"
+description: "I do free and opensource software. I eat. I travel. I take pictures. I bike. I love linguistics."
+origin: "I'm from Caracas, Venezuela"
+
+
+markdown:  kramdown
+permalink: pretty
+paginate: 12
+sass:
+  style: compressed
+
+plugins:
+  - jekyll-paginate
+  - jekyll/tagging
+
+include:
+  - _pages
+
+exclude:
+  - old-blog 
+  - sinai
+  - Gemfile
+  - Gemfile.lock
+
+# Tags
+tag_page_dir:         tag
+tag_page_layout:      tag_page
+tag_permalink_style:  pretty
+
+# Pages path
+defaults:
+  - scope:
+      path: '_pages'
+    values:
+      permalink: /:basename:output_ext
