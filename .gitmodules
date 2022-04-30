@@ -1,3 +1,3 @@
 [submodule "lagom"]
-	path = lagom
+	path = old-blog/lagom
 	url = https://github.com/foursixnine/lagom.git
