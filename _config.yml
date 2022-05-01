@@ -43,6 +43,7 @@ include:
 exclude:
   - old-blog 
   - sinai
+  - vendor
   - Gemfile
   - Gemfile.lock
 
