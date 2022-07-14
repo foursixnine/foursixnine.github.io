@@ -1,8 +1,8 @@
 #!/usr/bin/ruby
 require 'date'
 
-@postDate = Date.today.to_s()
-puts "Layout type?: (using 'post' as default for now)"
+@postDate = Date.today.to_s() 
+puts "Layout type?: "
 @layout = 'post' # $stdin.readline.chomp()?
 puts "Title?: "
 @title = $stdin.readline.chomp()
@@ -23,4 +23,6 @@ generated on: #{@postDate}
 HEREDOC
 end
 puts template()
-File.write("_posts/#@postDate-#@permalink", template())
+post_name = "_posts/#{@postDate}-#{@permalink}"
+File.write(post_name, template())
+system("vim '#{post_name}' && git add '#{post_name}'")
