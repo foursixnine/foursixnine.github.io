@@ -20,15 +20,8 @@ url:                'https://foursixnine.io/' # The base hostname & protocol for
 title: foursixnine's lair
 author:
   name: Santiago Zarate
-  email: blog AT foursixnine.io
-description: ""
-I'm a self-taught engineer or a hacker, depending on the question you ask; I love to solve problems of different sorts, coach, mentor, and guide; with almost 20 years of experience in 2022, I'd like to offer the perspective, knowledge, and expertise to those who'd like to tap into it.
-
-Working with [Humans Not Robots](https://humansnotrobots.net), I can help with the soft skills side of your career and interview preparation, including improvements to your CV, along with Quality Engineering, IT Career Guidance, and Leadership Coaching. Furthermore, I offer Mentorships and Coaching for neurodivergent people, especially for those who are part of the ADHD tribe and the Autistic Spectrum Disorder tribe, tribes I belong to.
-
-During the day, I'm passionate about Quality Engineering, Software Development Lifecycle, Product Management, Open Source software, and communities.
-
-If you would like to talk, please send an [email](mailto:info@foursixnine.io), or chat with me on [Telegram](https://t.me/foursixnine).
+  email: info@foursixnine.io
+description: "I do free and opensource software; I Coach, Mentor and Guide on a range of topics, like Quality Engineering, Career Development, IT, Agile, Leadership. I also offer my knowledge and expertise in managing Attention Deficit and Hyperativity Disorder (ADHD) and Autistm Spectrum Disorder (ASD)."
 origin: "I'm from Caracas, Venezuela"
 show_excerpts: false # set to true to show excerpts on the homepage
 
