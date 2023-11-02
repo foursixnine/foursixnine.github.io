@@ -79,7 +79,7 @@ $filtered->each(sub{
 
 I have another script that does the unban, but for now I'm ok with copy&pasting :)
 
-The full script is at: https://github.com/foursixnine/stunning-octo-chainsaw/blob/master/postfix-logparser/logparser.pl
+The full script is at [foursixnine/stunning-octo-chainsaw](https://github.com/foursixnine/stunning-octo-chainsaw/blob/master/postfix-logparser/logparser.pl)
 pull requests are welcome, and maybe in the future I move this to its own thing, but for now, that's all folks.
 
 ![Regular Expressions](https://imgs.xkcd.com/comics/regular_expressions.png)
