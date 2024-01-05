@@ -4,9 +4,9 @@ title: Deactivating copilot for password managers like pass
 categories:
 - blog
 - copilot 
--tinfoil 
--security 
--nvim
+- tinfoil 
+- security 
+- nvim
 generated on: 2024-01-05
 ---
 
@@ -18,34 +18,34 @@ everywhere, basically creates a risk for your precious passwords... As Copilot w
 
 So here's the snippet I use:
 
-```
+```lua
 -- initialize copilot
 local copilot = {
-	"zbirenbaum/copilot.lua",
-	"ofseed/copilot-status.nvim",
-	cmd = "Copilot",
-	build = ":Copilot auth",
-	event = "InsertEnter",
-	opts = {
-		filetypes = {
-			sh = function()
-				if string.match(vim.fs.basename(vim.api.nvim_buf_get_name(0)), "^%.env.*") then
-					-- disable for .env files
-					return false
-				end
-				return true
-			end,
-			text = function()
-				if
-					vim.has_key(vim.environ(), "GIT_CEILING_DIRECTORIES") or vim.has_key(vim.environ(), "PASS_VERSION")
-				then
-					-- disable for .env files
-					return false
-				end
-				return true
-			end,
-		},
-	},
+  "zbirenbaum/copilot.lua",
+  "ofseed/copilot-status.nvim",
+  cmd = "Copilot",
+  build = ":Copilot auth",
+  event = "InsertEnter",
+  opts = {
+    filetypes = {
+      sh = function()
+        if string.match(vim.fs.basename(vim.api.nvim_buf_get_name(0)), "^%.env.*") then
+          -- disable for .env files
+          return false
+        end
+        return true
+      end,
+      text = function()
+        if
+          vim.has_key(vim.environ(), "GIT_CEILING_DIRECTORIES") or vim.has_key(vim.environ(), "PASS_VERSION")
+        then
+          -- disable for .env files
+          return false
+        end
+        return true
+      end,
+    },
+  },
 }
 ```
 
