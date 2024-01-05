@@ -19,7 +19,7 @@ layout: #{@layout}
 title: #{@title}
 categories:
 - blog
-- #{@categories}
+#{@categories}
 generated on: #{@postDate}
 ---
 ![Insomnia from XKCD](https://imgs.xkcd.com/comics/insomnia.png)
