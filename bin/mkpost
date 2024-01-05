@@ -7,8 +7,8 @@ puts "Layout type?: "
 puts "Title?: "
 @title = $stdin.readline.chomp()
 puts "Categories?: blog is appended automatically, separate by commas"
-@categories = $stdin.readline.chomp().split(',').map!{ |x| '- ' + x.strip.downcase }.join("\n")
-@permalink = @title.tr(' ','-')+'.md'
+@categories = $stdin.readline.chomp().split(',').map{ |x| '- ' + x.strip.downcase }.join("\n")
+@permalink = @title.gsub(/\W/,'').downcase+'.md'
 # categories needs to be a list separated by commas
 
 def template
