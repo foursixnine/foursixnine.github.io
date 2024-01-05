@@ -6,8 +6,10 @@ puts "Layout type?: "
 @layout = 'post' # $stdin.readline.chomp()?
 puts "Title?: "
 @title = $stdin.readline.chomp()
-#category = $stdin.readline
+puts "Categories?: blog is appended automatically, separate by commas"
+@categories = $stdin.readline.chomp().split(',').map!{ |x| '- ' + x.strip.downcase }.join("\n")
 @permalink = @title.tr(' ','-')+'.md'
+# categories needs to be a list separated by commas
 
 def template
 
@@ -17,6 +19,7 @@ layout: #{@layout}
 title: #{@title}
 categories:
 - blog
+- #{@categories}
 generated on: #{@postDate}
 ---
 ![Insomnia from XKCD](https://imgs.xkcd.com/comics/insomnia.png)
@@ -25,4 +28,4 @@ end
 puts template()
 post_name = "_posts/#{@postDate}-#{@permalink}"
 File.write(post_name, template())
-system("vim '#{post_name}' && git add '#{post_name}'")
+system("nvim '#{post_name}' && git add '#{post_name}'")
