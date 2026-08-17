@@ -24,10 +24,11 @@ Alternatively you can build it and then run it (Sky is the limit)
 
 You can check usage too by passing `--help`, It runs fairly fast, and in the end up with a `pass_exported_passwords.csv` (again see program help for defaults).
 
-A feature that I'd like to add is a support for user plugins, to i.e check if an otp token is duplicated, or if a password is being reused, but that's for the future
+A feature that I'd like to add is a support for user plugins, to i.e check if an otp token is duplicated, or if a password is being reused, but that's for the future. [^1]
 
 As usual PRs are welcome, specially for adding tests.
 
 PS: "Maybe" I fix the program to be able to be installed via `go install $foo` (or somebody submits a PR :D)
 
 [https://github.com/foursixnine/pass-exporter](https://github.com/foursixnine/pass-exporter) 
+[^1]: [That ain't gonna happen?](https://www.youtube.com/watch?v=LeGrl74YSMU)
