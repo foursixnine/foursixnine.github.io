@@ -14,7 +14,7 @@ As a requisite you need to have the private key that protects the passwords, exp
 
 `gpg --export-secret-keys --armor $YOURFINGERPRINT > private-key.asc`
 
-To run simply run, you need to clone the sources from the [git repo](https://github.com/foursixnine/pass-exporter) and inside the directory run:
+To run simply run, you need to clone the sources from the [git repo](https://github.com/foursixnine/pass-exporter)[^2] and inside the directory run:
 
 ```
 go run . --private-key private-key.asc --identity alice@example.com
@@ -30,5 +30,8 @@ As usual PRs are welcome, specially for adding tests.
 
 PS: "Maybe" I fix the program to be able to be installed via `go install $foo` (or somebody submits a PR :D)
 
-[https://github.com/foursixnine/pass-exporter](https://github.com/foursixnine/pass-exporter) 
+----
+## Footnotes
+
 [^1]: [That ain't gonna happen?](https://www.youtube.com/watch?v=LeGrl74YSMU)
+[^2]: The repo is located at: [https://github.com/foursixnine/pass-exporter](https://github.com/foursixnine/pass-exporter)
