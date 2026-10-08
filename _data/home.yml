@@ -12,23 +12,6 @@ project_entries:
   - title: openSUSE
     url: https://opensuse.org
     desc: My daily driver (openSUSE Tumbleweed for my machines, openSUSE MicroOS for my servers)
-#   - title: Project 3
-#     url: overview-post
-#     desc: You can control visibility from _config.yml file
-#
-#   - title: Project 4
-#     url: overview-post
-#     desc: This project uses highlight markup, configured in _data/home.yml
-#     highlight: WIP
-#
-#   - title: Project 5
-#     url: overview-post
-#     desc: Tokyo Night also has horizontal list support for header and footer
-#     highlight: WIP
-#
-#   - title: Project 6
-#     url: overview-post
-#     desc: It also has a scalable vertical list (in case you need it)
 
 footer_entries:
 
