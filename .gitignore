@@ -9,6 +9,7 @@ html
 sinai
 
 # Obsidian stuff
+.obsidian/app.json
 .obsidian/workspace.json
 .obsidian/graph.json
 
@@ -18,5 +19,5 @@ sinai
 .gems
 .bundle/
 vendor
-Gemfile
-Gemfile.lock
+# Gemfile
+# Gemfile.lock
